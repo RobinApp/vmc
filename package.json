@@ -4,16 +4,38 @@
   "description": "This is my examination project, to build a website for VMC Gotland (AB Visby Motorcentral). I will be using WordPress, \r this repository will only contain the theme.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "production": "cross-env NODE_ENV=production webpack"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RobinApp/vmc.git"
   },
-  "author": "",
+  "author": "Robin Appelblom",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RobinApp/vmc/issues"
   },
-  "homepage": "https://github.com/RobinApp/vmc#readme"
+  "homepage": "https://github.com/RobinApp/vmc#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.18.13",
+    "browser-sync-webpack-plugin": "^1.2.0",
+    "cssnano": "^3.10.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "import-postcss": "^8.0.2",
+    "postcss-cli": "^4.1.1",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-loader": "^2.0.8",
+    "uglify-js": "^3.1.10",
+    "webpack": "^3.8.1",
+    "webpack-node-externals": "^1.6.0",
+    "webpack-sass-loaders": "^1.0.0",
+    "webpack-uglify-js-plugin": "^1.1.9"
+  }
 }
