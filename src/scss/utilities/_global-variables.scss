@@ -1,0 +1,19 @@
+$color_1: #fff;
+$color_2: #EEEEEE;
+$color_3: #003057;
+
+$white: #fff;
+$black: #000;
+
+$boxShadow: 0px 0px 3px $black;
+
+$boxSizing: border-box;
+
+$spacer: 12px;
+
+$font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}

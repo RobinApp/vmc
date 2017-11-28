@@ -25,31 +25,34 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'vmc_gotland' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
+		<div id="site-navigation-mobile" class="main-navigation-mobile">
+			<div class="main-navigation-mobile__group main-navigation-mobile__nav">
+				<a href="#" id="mobile-menu-toggle">Meny</a>
+			</div><!-- .main-navigation-mobile -->
+
+			<div class="main-navigation-mobile__group main-navigation-mobile__logo">
+				<?php the_custom_logo(); ?>
+			</div><!-- .main-navigation-mobile -->
+		</div><!-- #site-navigation-mobile -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'vmc_gotland' ); ?></button>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-			?>
+			<!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<?php // esc_html_e( 'Primary Menu', 'vmc_gotland' ); ?>
+			</button> -->
+
+			<div class="main-navigation__group main-navigation__nav">
+				<?php wp_nav_menu( array( 'theme_location' => 'main_navigation', 'menu_id' => 'menu-main' ) ); ?>
+			</div><!-- .main-navigation__nav -->
+
+			<div class="main-navigation__group main-navigation__logo">
+				<?php the_custom_logo(); ?>
+			</div><!-- .main-navigation__logo -->
+
+			<div class="main-navigation__group main-navigation__cars">
+				<?php wp_nav_menu( array( 'theme_location' => 'car_manufacturers', 'menu_id' => 'menu-cars' ) ); ?>
+			</div><!-- .main-navigation__cars -->
+
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 

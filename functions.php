@@ -44,7 +44,8 @@ if ( ! function_exists( 'vmc_gotland_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'vmc_gotland' ),
+			'main_navigation' => esc_html__( 'Main-navigation' ),
+			'car_manufacturers' => esc_html__( 'Car-manufacturers'),
 		) );
 
 		/*
@@ -120,6 +121,8 @@ function vmc_gotland_scripts() {
 
 	// Styles
 
+	// wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Hind:400,700', false );
+
 	wp_enqueue_style( 'vmc_gotland-style', get_template_directory_uri() . '/dist/css/style.css', null, '1.0', 'all' );
 
 	// Scripts
@@ -135,6 +138,12 @@ function vmc_gotland_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'vmc_gotland_scripts' );
+
+function cc_mime_types($mimes) {
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+  }
+  add_filter('upload_mimes', 'cc_mime_types');
 
 /**
  * Implement the Custom Header feature.

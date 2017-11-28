@@ -1,0 +1,85 @@
+// Mobile navigation / top menu bar
+.main-navigation-mobile {
+    @include flex-box(row, flex-start, wrap);
+    background-color: $white;
+    box-shadow: $boxShadow;
+    box-sizing: $boxSizing;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    &__nav,
+    &__logo {
+        @include flex-box(row, center, wrap);
+        align-items: center;
+        height: 100%;
+    }
+    &__nav {
+        color: $color_3;
+        cursor: pointer;
+        width: 60px;
+        a {
+            @include flex-box(column, center, wrap);
+            @extend .link;
+            height: 100%;
+            margin: 0;
+            padding: 0 $spacer - 2px;
+            text-decoration: none;
+        }
+    }
+    &__logo {
+        width: calc(100% - 60px);
+        img {
+            height: 40px;
+            width: 102px;
+        }
+        a {
+            @include flex-box(row, center, wrap);
+            @extend .link;
+            margin-left: -60px;
+            width: 102px;
+        }
+    }
+}
+
+// Main navigation (also used for mobile)
+
+.main-navigation {
+    background-color: $white;
+    overflow-x: hidden;
+    margin-left: -100%;
+    margin-top: 50px;
+    width: 100%;
+    height: calc(100vh - 50px);
+    position: fixed;
+    z-index: 5;
+    transition: margin-left 0.4s;
+    &__group {
+        .menu-main-navigation-container,
+        .menu-car-manufacturers-container {
+            // margin-left: -100%;
+            width: 100%;
+        }
+    }
+    &__nav {
+    }
+    &__logo {
+        display: none;
+    }
+    .menu-item {
+        padding: 10px;
+        border-bottom: 1px solid $color_2;
+    }
+    a {
+        @extend .link;
+    }
+}
+
+.main-navigation-toggle {
+    margin-left: -0%;
+}
+
+.menu {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}

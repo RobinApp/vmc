@@ -1,4 +1,12 @@
-#page {
-    // background-color: green !important;
-    // color: red !important;
+@import 
+"utilities/_global-variables",
+"utilities/_mixins",
+"_vmc-theme",
+"_header";
+
+// Override WP styling
+
+body {
+    margin: 0 !important;
+    font-family: $font;
 }

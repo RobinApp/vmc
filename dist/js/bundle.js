@@ -72,13 +72,61 @@
 
 __webpack_require__(1);
 
+var _mainNavigation = __webpack_require__(6);
+
 console.log('Testing');
+
+var mn = new _mainNavigation.MainNavigation();
 
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var MainNavigation = exports.MainNavigation = function () {
+    function MainNavigation() {
+        var _this = this;
+
+        _classCallCheck(this, MainNavigation);
+
+        this.menuState = false;
+        this.menu = document.getElementById('mobile-menu-toggle');
+        this.menuToggle = document.getElementById('site-navigation');
+        this.menu.addEventListener('click', function (e) {
+            return _this.mobileMenuToggle(e);
+        });
+    }
+
+    _createClass(MainNavigation, [{
+        key: 'mobileMenuToggle',
+        value: function mobileMenuToggle(e) {
+            this.menuState === false ? this.menuToggle.classList.add('main-navigation-toggle') : this.menuToggle.classList.remove('main-navigation-toggle');
+            this.menuState === false ? this.menuState = true : this.menuState = false;
+        }
+    }]);
+
+    return MainNavigation;
+}();
 
 /***/ })
 /******/ ]);
