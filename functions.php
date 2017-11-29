@@ -80,6 +80,8 @@ if ( ! function_exists( 'vmc_gotland_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+		
 	}
 endif;
 add_action( 'after_setup_theme', 'vmc_gotland_setup' );
@@ -142,8 +144,46 @@ add_action( 'wp_enqueue_scripts', 'vmc_gotland_scripts' );
 function cc_mime_types($mimes) {
 	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
-  }
-  add_filter('upload_mimes', 'cc_mime_types');
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
+// Get Media Images
+
+function get_images_from_media_library() {
+
+    $args = array(
+        'post_type' => 'attachment',
+        'post_mime_type' =>'image',
+        'post_status' => 'inherit',
+        'posts_per_page' => -1,
+        'orderby' => 'rand'
+	);
+	
+    $query_images = new WP_Query( $args );
+	$images = array();
+	
+    foreach ( $query_images->posts as $image) {
+        $images[]= $image->guid;
+	}
+	
+	return $images;
+	
+}
+
+function display_images_from_media_library() {
+
+	$imgs = get_images_from_media_library();
+	$html = '<div id="media-gallery">';
+
+	foreach($imgs as $img) {
+		$html .= '<img src="' . $img . '" alt="" />';
+	}
+
+	$html .= '</div>';
+
+	return $html;
+}
+
 
 /**
  * Implement the Custom Header feature.

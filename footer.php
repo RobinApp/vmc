@@ -14,17 +14,47 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'vmc_gotland' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'vmc_gotland' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'vmc_gotland' ), 'vmc_gotland', '<a href="http://underscores.me/">Underscores.me</a>' );
-			?>
-		</div><!-- .site-info -->
+		<div class="site-footer__wrapper">
+
+			<div class="site-footer__navigation">
+				<?php wp_nav_menu( array( 'theme_location' => 'main_navigation', 'menu_id' => 'menu-footer' ) ); ?>
+				<?php wp_nav_menu( array( 'theme_location' => 'car_manufacturers', 'menu_id' => 'menu-footer-cars' ) ); ?>
+			</div>
+			
+			<div class="site-footer__media">
+				<a href="https://www.facebook.com/vmcgotland/" target="_blank">
+					<i class="fa fa-facebook-square" aria-hidden="true"></i>	
+				</a>
+				<a href="#" target="_blank">
+					<i class="fa fa-instagram" aria-hidden="true"></i>
+				</a>
+				<a href="#" target="_blank">
+					<i class="fa fa-twitter" aria-hidden="true"></i>
+				</a>
+				<a href="#" target="_blank">
+					<i class="fa fa-youtube" aria-hidden="true"></i>				
+				</a>
+			</div>
+			
+			<div class="site-footer__copyright">
+				<p>Copyright &copy; <?php echo date('Y'); ?> AB Visby Motorcentral</P>
+			</div>
+
+			<div class="site-footer__logo">
+				<?php
+					if ( $attachments = get_children( array(
+						'post_type' => 'attachment',
+						'post_mime_type'=>'image',
+						'numberposts' => 1,
+						'post_status' => null
+					)));
+					foreach ($attachments as $attachment) {
+					?> <img src="<?php echo wp_get_attachment_url( $attachment->ID, '' , true, false, '/vmc-logo-white.svg' ); ?>" alt="VMC Gotland Logo White"> <?php
+					}
+				?>
+			</div>
+
+		</div><!-- .site-footer__wrapper -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

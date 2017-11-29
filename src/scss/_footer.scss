@@ -1,0 +1,52 @@
+.site-footer {
+    background-color: $color_4;
+    color: $white;
+    a {
+        @extend .link;
+    }
+    &__wrapper {
+        padding: 50px 10px;
+    }
+    &__navigation {
+        margin: 0 auto;
+        width: 50%;
+        .menu-item {
+            a {
+                @include flex-box(row, center, nowrap);
+                padding: 5px;
+            }
+        }
+    }
+    &__media{
+        @include flex-box(row, space-around, nowrap);
+        margin: 50px auto;
+        width: 80%;
+        a {
+            padding: 10px;
+        }
+        i {
+            font-size: 40px;
+        }
+    }
+    &__copyright,
+    &__logo {
+        margin: 50px auto;
+        text-align: center;
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .site-footer {
+        &__navigation {
+            width: 80%;
+            #menu-footer,
+            #menu-footer-cars {
+                @include flex-box(row, center, nowrap);
+                a {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+}

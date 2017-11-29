@@ -2,7 +2,7 @@
 .main-navigation-mobile {
     @include flex-box(row, flex-start, wrap);
     background-color: $white;
-    box-shadow: $boxShadow;
+    border-bottom: 1px solid $color_2;
     box-sizing: $boxSizing;
     height: 50px;
     position: fixed;
@@ -14,7 +14,7 @@
         height: 100%;
     }
     &__nav {
-        color: $color_3;
+        // color: $color_3;
         cursor: pointer;
         width: 60px;
         a {
@@ -44,6 +44,7 @@
 // Main navigation (also used for mobile)
 
 .main-navigation {
+    box-sizing: $boxSizing;
     background-color: $white;
     overflow-x: hidden;
     margin-left: -100%;
@@ -56,7 +57,6 @@
     &__group {
         .menu-main-navigation-container,
         .menu-car-manufacturers-container {
-            // margin-left: -100%;
             width: 100%;
         }
     }
@@ -66,8 +66,16 @@
         display: none;
     }
     .menu-item {
-        padding: 10px;
-        border-bottom: 1px solid $color_2;
+        a {
+            @include flex-box(row, flex-start, nowrap);
+            box-sizing: inherit;
+            padding: 10px;
+            border-bottom: 1px solid $color_2;
+        }
+    }
+    .current-menu-item {
+        padding-left: 20px;
+        border-left: 5px solid $color_3;
     }
     a {
         @extend .link;
@@ -82,4 +90,64 @@
     margin: 0;
     list-style: none;
     padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .main-navigation {
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .main-navigation {
+        @include flex-box(row, space-between, nowrap);
+        border-bottom: 1px solid $color_2;
+        height: 50px;
+        margin: 0;
+        position: fixed;
+        width: 100%;
+        &__nav,
+        &__logo,
+        &__cars {
+            @include flex-box(row, center, wrap);
+            align-items: center;
+            height: 100%;
+        }
+        &__nav,
+        &__cars {
+            width: calc(50% - 100px);
+        }
+        &__logo {
+            width: 200px;
+            img {
+                height: 40px;
+                width: 102px;
+            }
+            a {
+                @include flex-box(row, center, wrap);
+                width: 102px;
+            }
+        }
+        #menu-main {
+            @include flex-box(row, flex-start, nowrap);
+        }
+        #menu-cars {
+            @include flex-box(row, flex-end, nowrap);
+        }
+        .menu-item {
+            border: none;
+            padding: 0;
+            a {
+                padding: 10px;
+                @include flex-box(row, center, nowrap);
+                border: none;
+            }
+        }
+        .current-menu-item {
+            border-bottom: 5px solid $color_3;
+        }
+    }
+    .main-navigation-mobile {
+        display: none;
+    }
 }

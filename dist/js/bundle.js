@@ -72,7 +72,7 @@
 
 __webpack_require__(1);
 
-var _mainNavigation = __webpack_require__(6);
+var _mainNavigation = __webpack_require__(2);
 
 console.log('Testing');
 
@@ -85,11 +85,7 @@ var mn = new _mainNavigation.MainNavigation();
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -112,16 +108,47 @@ var MainNavigation = exports.MainNavigation = function () {
         this.menuState = false;
         this.menu = document.getElementById('mobile-menu-toggle');
         this.menuToggle = document.getElementById('site-navigation');
+        this.menuMobile = document.getElementById('site-navigation-mobile');
+        this.menuSymbol = document.getElementById('mobile-menu-toggle');
         this.menu.addEventListener('click', function (e) {
             return _this.mobileMenuToggle(e);
         });
+        this.manufacturer = document.querySelector('.current-menu-item');
+        this.manufacturerMenuStyling();
     }
 
     _createClass(MainNavigation, [{
         key: 'mobileMenuToggle',
         value: function mobileMenuToggle(e) {
+            this.menuSymbol.innerHTML === 'Meny' ? this.menuSymbol.innerHTML = '&#x02A2F' : this.menuSymbol.innerHTML = 'Meny';
             this.menuState === false ? this.menuToggle.classList.add('main-navigation-toggle') : this.menuToggle.classList.remove('main-navigation-toggle');
             this.menuState === false ? this.menuState = true : this.menuState = false;
+            return true;
+        }
+    }, {
+        key: 'manufacturerMenuStyling',
+        value: function manufacturerMenuStyling() {
+
+            if (this.menuMobile.style.display === 'none') {
+
+                console.log('ja');
+            }
+            var currentManufacturer = this.manufacturer.children[0].innerHTML;
+            switch (currentManufacturer) {
+                case 'Volov':
+                    this.manufacturer.style.borderColor = '#003057';
+                    break;
+                case 'Renault':
+                    this.manufacturer.style.borderColor = '#fc3';
+                    break;
+                case 'Nissan':
+                    this.manufacturer.style.borderColor = '#C3002F';
+                    break;
+                case 'Dacia':
+                    this.manufacturer.style.borderColor = '#003057';
+                    break;
+            }
+            return true;
         }
     }]);
 
