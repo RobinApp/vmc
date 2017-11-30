@@ -1,3 +1,5 @@
+import { hasClass } from './utilities';
+
 export class MainNavigation {
     constructor() {
         this.menuState = false;
@@ -6,8 +8,9 @@ export class MainNavigation {
         this.menuMobile = document.getElementById('site-navigation-mobile');
         this.menuSymbol = document.getElementById('mobile-menu-toggle');
         this.menu.addEventListener('click', e => this.mobileMenuToggle(e));
-        this.manufacturer = document.querySelector('.current-menu-item');
-        this.manufacturerMenuStyling();
+        this.menuList = [].slice.call(document.querySelectorAll('.menu-item'));
+        this.manufacturer;
+        this.currentMenuItem();
     }
     
     mobileMenuToggle(e) {
@@ -16,13 +19,19 @@ export class MainNavigation {
         this.menuState === false ? this.menuState = true : this.menuState = false;
         return true;
     }
-    manufacturerMenuStyling() {
 
-        if (this.menuMobile.style.display === 'none') {
-            
-            console.log('ja');
-        }
+    currentMenuItem() {
+        let current;
+        this.menuList.map((i)=> {
+            current = hasClass(i, 'current-menu-item');
+            current === true ? this.manufacturerMenuStyling() : '';
+        });
+    }
+
+    manufacturerMenuStyling() {
+        this.manufacturer = document.querySelector('.current-menu-item');
         let currentManufacturer = this.manufacturer.children[0].innerHTML;
+
         switch (currentManufacturer) {
             case 'Volov':
                 this.manufacturer.style.borderColor = '#003057';

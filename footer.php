@@ -22,16 +22,16 @@
 			</div>
 			
 			<div class="site-footer__media">
-				<a href="https://www.facebook.com/vmcgotland/" target="_blank">
+				<a href="https://www.facebook.com/vmcgotland/" target="_blank" title="Facebook">
 					<i class="fa fa-facebook-square" aria-hidden="true"></i>	
 				</a>
-				<a href="#" target="_blank">
+				<a href="#" target="_blank" title="Instagram">
 					<i class="fa fa-instagram" aria-hidden="true"></i>
 				</a>
-				<a href="#" target="_blank">
+				<a href="#" target="_blank" title="Twitter">
 					<i class="fa fa-twitter" aria-hidden="true"></i>
 				</a>
-				<a href="#" target="_blank">
+				<a href="#" target="_blank" title="YouTube">
 					<i class="fa fa-youtube" aria-hidden="true"></i>				
 				</a>
 			</div>
@@ -52,6 +52,10 @@
 					?> <img src="<?php echo wp_get_attachment_url( $attachment->ID, '' , true, false, '/vmc-logo-white.svg' ); ?>" alt="VMC Gotland Logo White"> <?php
 					}
 				?>
+			</div>
+
+			<div class="site-footer__scroll" button>
+					<a class="scroll-top-btn button" button>Till toppen på sidan</a>
 			</div>
 
 		</div><!-- .site-footer__wrapper -->

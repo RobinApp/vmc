@@ -1,13 +1,19 @@
 @import 
 "utilities/_global-variables",
 "utilities/_mixins",
+"_global-styling",
 "_vmc-theme",
 "_header",
-"_footer";
+"_footer",
+"_error";
 
 // Override WP styling
 
 body {
     margin: 0 !important;
     font-family: $font;
+}
+
+html {
+    margin-top: 0 !important;
 }

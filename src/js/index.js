@@ -1,5 +1,6 @@
 import '../scss/style.scss';
 import { MainNavigation } from './main-navigation';
-console.log('Testing');
+import { Footer } from './footer';
 
-let mn = new MainNavigation();
+let mainNavigationOne = new MainNavigation();
+let footerOne = new Footer();

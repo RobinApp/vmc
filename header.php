@@ -22,9 +22,10 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'vmc_gotland' ); ?></a>
 
 	<header id="masthead" class="site-header">
+
+		<div class="navigation-spacer"></div>
 
 		<div id="site-navigation-mobile" class="main-navigation-mobile">
 			<div class="main-navigation-mobile__group main-navigation-mobile__nav">

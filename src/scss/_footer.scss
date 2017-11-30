@@ -20,6 +20,7 @@
     &__media{
         @include flex-box(row, space-around, nowrap);
         margin: 50px auto;
+        max-width: 500px;
         width: 80%;
         a {
             padding: 10px;
@@ -29,10 +30,16 @@
         }
     }
     &__copyright,
-    &__logo {
+    &__logo,
+    &__scroll {
         margin: 50px auto;
         text-align: center;
         width: 80%;
+    }
+    &__scroll {
+        &:after {
+            // content: ' >';
+        }
     }
 }
 
@@ -47,6 +54,9 @@
                     padding: 10px;
                 }
             }
+        }
+        &__logo {
+            max-width: 300px;
         }
     }
 }

@@ -1,0 +1,24 @@
+.error-404 {
+    box-sizing: $boxSizing;
+    min-height: calc(100vh - 50px);
+    padding: 0 10px;
+    padding-top: 50px;
+    &__header,
+    &__content,
+    &__404 {
+        text-align: center;
+        margin: 0 auto;
+        h1,
+        p {
+            margin: inherit;
+            padding: 10px;
+        }
+    }
+    &__header {
+        color: $color_3;
+    }
+    &__404 {
+        font-size: 100px;
+        color: $errorColor;
+    }
+}

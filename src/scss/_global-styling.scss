@@ -1,0 +1,17 @@
+.button {
+    border: 1px solid $white;
+    box-sizing: $boxSizing;
+    cursor: pointer;
+    margin-bottom: 0;
+    margin-top: 0;
+    max-width: 250px;
+    padding: 10px 20px;
+}
+
+@media screen and (min-width: 1025px) {
+    .button {
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    }
+}
