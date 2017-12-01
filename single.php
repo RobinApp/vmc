@@ -7,6 +7,8 @@
  * @package vmc_gotland
  */
 
+require_once('includes.php');
+
 get_header(); ?>
 
 	<div id="primary" class="content-area">

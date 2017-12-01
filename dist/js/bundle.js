@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,23 +70,85 @@
 "use strict";
 
 
-__webpack_require__(1);
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.hasClass = hasClass;
+exports.currentYPosition = currentYPosition;
+exports.elmYPosition = elmYPosition;
+exports.smoothScroll = smoothScroll;
+function hasClass(el, cls) {
+    return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
+};
 
-var _mainNavigation = __webpack_require__(2);
+function currentYPosition() {
+    // Firefox, Chrome, Opera, Safari
+    if (self.pageYOffset) return self.pageYOffset;
+    // Internet Explorer 6 - standards mode
+    if (document.documentElement && document.documentElement.scrollTop) return document.documentElement.scrollTop;
+    // Internet Explorer 6, 7 and 8
+    if (document.body.scrollTop) return document.body.scrollTop;
+    return 0;
+}
 
-var _footer = __webpack_require__(9);
+function elmYPosition(eID) {
+    var elm = document.getElementById(eID);
+    var y = elm.offsetTop;
+    var node = elm;
+    while (node.offsetParent && node.offsetParent != document.body) {
+        node = node.offsetParent;
+        y += node.offsetTop;
+    }return y;
+}
+
+function smoothScroll(eID) {
+    var startY = currentYPosition();
+    var stopY = elmYPosition(eID);
+    var distance = stopY > startY ? stopY - startY : startY - stopY;
+    if (distance < 100) {
+        scrollTo(0, stopY);return;
+    }
+    var speed = Math.round(distance / 100);
+    if (speed >= 20) speed = 20;
+    var step = Math.round(distance / 25);
+    var leapY = stopY > startY ? startY + step : startY - step;
+    var timer = 0;
+    if (stopY > startY) {
+        for (var i = startY; i < stopY; i += step) {
+            setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+            leapY += step;if (leapY > stopY) leapY = stopY;timer++;
+        }return;
+    }
+    for (var i = startY; i > stopY; i -= step) {
+        setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+        leapY -= step;if (leapY < stopY) leapY = stopY;timer++;
+    }
+}
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(2);
+
+var _mainNavigation = __webpack_require__(3);
+
+var _footer = __webpack_require__(4);
 
 var mainNavigationOne = new _mainNavigation.MainNavigation();
 var footerOne = new _footer.Footer();
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -99,7 +161,7 @@ exports.MainNavigation = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _utilities = __webpack_require__(8);
+var _utilities = __webpack_require__(0);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -169,74 +231,7 @@ var MainNavigation = exports.MainNavigation = function () {
 }();
 
 /***/ }),
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.hasClass = hasClass;
-exports.currentYPosition = currentYPosition;
-exports.elmYPosition = elmYPosition;
-exports.smoothScroll = smoothScroll;
-function hasClass(el, cls) {
-    return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
-};
-
-function currentYPosition() {
-    // Firefox, Chrome, Opera, Safari
-    if (self.pageYOffset) return self.pageYOffset;
-    // Internet Explorer 6 - standards mode
-    if (document.documentElement && document.documentElement.scrollTop) return document.documentElement.scrollTop;
-    // Internet Explorer 6, 7 and 8
-    if (document.body.scrollTop) return document.body.scrollTop;
-    return 0;
-}
-
-function elmYPosition(eID) {
-    var elm = document.getElementById(eID);
-    var y = elm.offsetTop;
-    var node = elm;
-    while (node.offsetParent && node.offsetParent != document.body) {
-        node = node.offsetParent;
-        y += node.offsetTop;
-    }return y;
-}
-
-function smoothScroll(eID) {
-    var startY = currentYPosition();
-    var stopY = elmYPosition(eID);
-    var distance = stopY > startY ? stopY - startY : startY - stopY;
-    if (distance < 100) {
-        scrollTo(0, stopY);return;
-    }
-    var speed = Math.round(distance / 100);
-    if (speed >= 20) speed = 20;
-    var step = Math.round(distance / 25);
-    var leapY = stopY > startY ? startY + step : startY - step;
-    var timer = 0;
-    if (stopY > startY) {
-        for (var i = startY; i < stopY; i += step) {
-            setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
-            leapY += step;if (leapY > stopY) leapY = stopY;timer++;
-        }return;
-    }
-    for (var i = startY; i > stopY; i -= step) {
-        setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
-        leapY -= step;if (leapY < stopY) leapY = stopY;timer++;
-    }
-}
-
-/***/ }),
-/* 9 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -249,7 +244,7 @@ exports.Footer = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _utilities = __webpack_require__(8);
+var _utilities = __webpack_require__(0);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 

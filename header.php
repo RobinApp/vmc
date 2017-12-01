@@ -9,6 +9,8 @@
  * @package vmc_gotland
  */
 
+require_once('includes.php');
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>

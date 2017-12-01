@@ -1,0 +1,42 @@
+.vmc-slider {
+    @include flex-box(row, flex-start, nowrap);
+    box-sizing: $boxSizing;
+    height: calc(100vh - 50px);
+    width: 100%;
+    overflow: hidden;
+    &__wrapper,
+    &__img,
+    &__txt {
+        box-sizing: inherit;
+        h2,
+        p {
+            margin: 0;
+            text-align: center;
+            padding: 10px;
+        }
+    }
+    &__wrapper,
+    &__content {
+        background-color: $color_4;
+        color: $white;
+        height: 100%;
+        width: 100%;
+    }
+    &__wrapper {
+        @include flex-box(column, flex-start, wrap);
+        overflow: hidden;
+        overflow-x: auto;
+    }
+    &__img {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 50%;
+        width: 100%;
+    }
+    &__txt {
+        height: 50%;
+        width: 100%;
+        padding-top: 30px;
+    }
+}

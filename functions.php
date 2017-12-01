@@ -15,6 +15,7 @@ if ( ! function_exists( 'vmc_gotland_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
+
 	function vmc_gotland_setup() {
 		/*
 		 * Make theme available for translation.
@@ -47,6 +48,9 @@ if ( ! function_exists( 'vmc_gotland_setup' ) ) :
 			'main_navigation' => esc_html__( 'Main-navigation' ),
 			'car_manufacturers' => esc_html__( 'Car-manufacturers'),
 		) );
+
+		// Custom Post Types
+		add_theme_support( 'post-thumbnails', array( 'post', 'vmc_gotland_cpt_slider' ) );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -184,6 +188,8 @@ function display_images_from_media_library() {
 	return $html;
 }
 
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );
 
 /**
  * Implement the Custom Header feature.

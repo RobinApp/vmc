@@ -9,6 +9,8 @@
  * @package vmc_gotland
  */
 
+require_once('includes.php');
+
 ?>
 
 	</div><!-- #content -->
