@@ -14,11 +14,15 @@
     height: 50px;
     position: fixed;
     width: 100%;
+    z-index: 5;
     &__nav,
     &__logo {
         @include flex-box(row, center, wrap);
         align-items: center;
         height: 100%;
+        img {
+            object-fit: cover;
+        }
     }
     &__nav {
         // color: $color_3;
@@ -136,6 +140,7 @@
             img {
                 height: 40px;
                 width: 102px;
+                object-fit: cover;
             }
             a {
                 @include flex-box(row, center, wrap);

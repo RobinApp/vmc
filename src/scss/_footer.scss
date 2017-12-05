@@ -60,3 +60,16 @@
         }
     }
 }
+
+@media screen and (min-width: 1025px) {
+    .site-footer {
+        &__navigation,
+        &__media {
+            a {
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}

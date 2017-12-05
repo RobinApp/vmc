@@ -77,6 +77,7 @@ exports.hasClass = hasClass;
 exports.currentYPosition = currentYPosition;
 exports.elmYPosition = elmYPosition;
 exports.smoothScroll = smoothScroll;
+exports.detectBrowser = detectBrowser;
 function hasClass(el, cls) {
     return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
 };
@@ -125,6 +126,44 @@ function smoothScroll(eID) {
     }
 }
 
+var mySwiper = new Swiper('.swiper-container', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination'
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+    },
+
+    // And if we need scrollbar
+    // scrollbar: {
+    //   el: '.swiper-scrollbar',
+    // },
+    speed: 800,
+
+    hideOnClick: true,
+    disabledClass: 'swiper-button-disabled',
+    hiddenClass: 'swiper-button-hidden',
+
+    autoplay: {
+        delay: 7000
+    }
+});
+
+exports.default = mySwiper;
+function detectBrowser() {
+    var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+    isIE === true ? alert('Vi har uppmärksammat att du använder webbläsaren Internet Explorer, ' + 'denna webbläsare saknar stöd för många funktioner som idag existerar på Internet. ' + 'Vi skulle därför rekomendera att du byter till en modernare webbläsare, ' + 'så som Google Chrome, Microsoft Edge eller Mozilla Firefox. ' + 'OBS, detta är endast en rekommendation.') : '';
+}
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -138,8 +177,12 @@ var _mainNavigation = __webpack_require__(3);
 
 var _footer = __webpack_require__(4);
 
+var _utilities = __webpack_require__(0);
+
 var mainNavigationOne = new _mainNavigation.MainNavigation();
 var footerOne = new _footer.Footer();
+
+// detectBrowser();
 
 /***/ }),
 /* 2 */
