@@ -14,7 +14,7 @@ get_header(); ?>
 
     <div id="slider-home" class="vmc-slider">
 
-    <?php sliderHome(); ?>
+    <?php sliderHome('volvo-slide-start'); ?>
     </div>
 
 	<div id="primary" class="content-area">
@@ -27,5 +27,4 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
-// get_sidebar();
 get_footer();

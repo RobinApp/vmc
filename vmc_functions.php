@@ -1,15 +1,15 @@
 <?php 
 
-$tag;
+$slug;
 $sliderHome = 'vmc_gotland_slider';
 $standardPosts = 'post';
 
-function sliderHome() {
+function sliderHome($slug) {
 
     global $sliderHome;
     
     // Query to only get posts from CPT Slider
-    $query = new WP_Query( array( 'post_type' => $sliderHome ) );
+    $query = new WP_Query( array( 'post_type' => $sliderHome, 'tag-slide' => $slug ) );
 
     ?>
     <div class="vmc-slider__container swiper-container">
@@ -46,14 +46,14 @@ function sliderHome() {
     <?php 
 }
 
-function standardPost($tag) {
+function standardPost($slug) {
 
     // The function must be called for within a container element with the class name "vmc-standard-post"
     
     global $standardPosts;
     
     // Query to only get standard posts with a specific tag
-    $query = new WP_Query( array( 'post_type' => $standardPosts, 'tag' => $tag ) );
+    $query = new WP_Query( array( 'post_type' => $standardPosts, 'tag' => $slug ) );
 
     ?>
     <div class="vmc-standard-post__container">

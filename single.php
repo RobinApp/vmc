@@ -13,25 +13,28 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
+			<div class="vmc-standard-post">
 
-		<?php
-		while ( have_posts() ) : the_post();
+				<?php
+					while ( have_posts() ) : the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
+						$thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
+						$background = "style=\"background-image: url('$thumb_url');\"";
 
-			the_post_navigation();
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
+				?>
+					<article class="vmc-standard-post__content">
+						<div class="vmc-standard-post__img" <?php echo $background; ?>></div>
+						<div class="vmc-standard-post__txt">
+							<h2><?php the_title(); ?></h2>
+							<p><?php the_content(); ?></p>
+						</div>
+					</article> 
+				<?php
+					endwhile; // End of the loop.
+				?>
+			</div><!-- .vmc-standard-post -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
