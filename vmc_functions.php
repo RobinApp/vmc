@@ -1,15 +1,26 @@
 <?php 
 
-$slug;
-$sliderHome = 'vmc_gotland_slider';
-$standardPosts = 'post';
+$tag; // Tag slug, add the desierd tag where you call on the function
+$standardSlider = 'vmc_gotland_slider'; // CPT Slider
+$standardPosts = 'post'; // Standard Posts
 
-function sliderHome($slug) {
+function standardSlider($tag) {
 
-    global $sliderHome;
+    global $standardSlider;
     
-    // Query to only get posts from CPT Slider
-    $query = new WP_Query( array( 'post_type' => $sliderHome, 'tag-slide' => $slug ) );
+    // Query to only get posts from CPT vmc_gotland_slider with a spcific tag
+    // $query = new WP_Query( array( 'post_type' => $standardSlider, 'slide-tag' => $tag ) );
+    $query = new WP_Query( array(
+        'tax_query' => array(
+            array(
+                'taxonomy'  => 'vmc_gotland_tag_slider',
+                'field'     => 'slug',
+                'terms'     =>  $tag,
+            ),
+        ),
+        'post_type' => $standardSlider,
+        'order'     =>'ASC',
+    ));
 
     ?>
     <div class="vmc-slider__container swiper-container">
@@ -33,7 +44,7 @@ function sliderHome($slug) {
                             <h1><?php the_title(); ?></h1>
                             <p><?php the_content(); ?></p>
                         </div>
-                </article> 
+                    </article><!-- .vmc-slider__content -->
                     <?php         
                 }
             }
@@ -46,14 +57,14 @@ function sliderHome($slug) {
     <?php 
 }
 
-function standardPost($slug) {
+function standardPost($tag) {
 
     // The function must be called for within a container element with the class name "vmc-standard-post"
     
     global $standardPosts;
     
     // Query to only get standard posts with a specific tag
-    $query = new WP_Query( array( 'post_type' => $standardPosts, 'tag' => $slug ) );
+    $query = new WP_Query( array( 'post_type' => $standardPosts, 'tag' => $tag ) );
 
     ?>
     <div class="vmc-standard-post__container">
@@ -77,12 +88,12 @@ function standardPost($slug) {
                         <h2><?php the_title(); ?></h2>
                         <p><?php the_content(); ?></p>
                     </div>
-            </article> 
+                </article><!-- .vmc-standard-post__content -->
                 <?php         
             }
         }
         ?>
-        </section><!-- .vmc-slider__wrapper -->
-    </div><!-- .vmc-slider__container -->
+        </section><!-- .vmc-standard-post__wrapper -->
+    </div><!-- .vmc-standard-post__container -->
     <?php 
 }

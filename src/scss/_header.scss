@@ -147,6 +147,14 @@
                 width: 102px;
             }
         }
+        &__group {
+            .menu-main-navigation-container,
+            .menu-car-manufacturers-container,
+            #menu-main,
+            #menu-cars {
+                height: 100%;
+            }
+        }
         #menu-main {
             @include flex-box(row, flex-start, nowrap);
         }
@@ -154,16 +162,27 @@
             @include flex-box(row, flex-end, nowrap);
         }
         .menu-item {
+            @include flex-box(row, flex-start, wrap);
             border: none;
             padding: 0;
             a {
+                align-self: center;
                 padding: 10px 15px;
                 @include flex-box(row, center, nowrap);
                 border: none;
             }
+            &:hover {
+                border-bottom: 5px solid $color_3;
+                a {
+                    padding-bottom: 5px;
+                }
+            }
         }
         .current-menu-item {
             border-bottom: 5px solid $color_3;
+            a {
+                padding-bottom: 5px;
+            }
         }
     }
     .main-navigation-mobile {
