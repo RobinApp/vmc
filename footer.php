@@ -27,7 +27,7 @@ require_once('includes.php');
 				<a href="https://www.facebook.com/vmcgotland/" target="_blank" title="Facebook">
 					<i class="fa fa-facebook-square" aria-hidden="true"></i>	
 				</a>
-				<a href="#" target="_blank" title="Instagram">
+				<a href="https://www.instagram.com/vmcgotland/" target="_blank" title="Instagram">
 					<i class="fa fa-instagram" aria-hidden="true"></i>
 				</a>
 				<a href="#" target="_blank" title="Twitter">

@@ -8,6 +8,13 @@
     padding: 10px 20px;
 }
 
+.content-area,
+.site-main {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .vmc-standard-post {
     box-sizing: $boxSizing;
     &__container,
@@ -16,12 +23,12 @@
         box-sizing: inherit;
     }
     &__content {
-        height: 250px;
         margin-top: -10px;
-        padding: 10px;
+        padding: 10px 0;
         width: 100%;
         &:first-child {
             margin-top: 0;
+            padding-top: 30px;
         }
         h2,
         p {
@@ -34,26 +41,37 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 100%;
+        height: 250px;
         width: 100%;
     }
     &__txt {
-        color: $color_1;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        justify-content: space-between;
+        box-sizing: inherit;
+        color: $color_4;
+        min-height: 100px;
         padding: 10px;
-        position: relative;
-        text-align: center;
-        top: -100%;
     }
 }
 
 @media screen and (min-width: 640px) {
     .vmc-standard-post {
         &__content {
-            height: 300px;
+            @include flex-box(row, flex-start, wrap);
+            padding-top: 30px;
+            &:nth-child(even) {
+                flex-flow: row-reverse;
+            }
+        }
+        &__img {
+            height: 250px;
+            width: 49%;
+        }
+        &__txt {
+            padding-top: 0;
+            width: 51%;
+            h2 {
+                padding: 10px;
+                padding-top: 0;
+            }
         }
     }
 }
@@ -61,7 +79,12 @@
 @media screen and (min-width: 768px) {
     .vmc-standard-post {
         &__content {
+            padding: 10px;
             height: 350px;
+            margin: 30px auto 0 auto;
+        }
+        &__img {
+            height: 100%;
         }
     }
 }
@@ -70,9 +93,7 @@
     .vmc-standard-post {
         box-sizing: $boxSizing;
         &__content {
-            @include flex-box(row, flex-start, wrap);
             height: 400px;
-            margin: 30px auto 0 auto;
             max-width: 1300px;
             padding: 30px;
             &:nth-child(even) {

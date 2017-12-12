@@ -50,7 +50,8 @@ if ( ! function_exists( 'vmc_gotland_setup' ) ) :
 		) );
 
 		// Custom Post Types
-		add_theme_support( 'post-thumbnails', array( 'post', 'vmc_gotland_cpt_slider' ) );
+		add_theme_support( 'post-thumbnails', array( 'post', 'vmc_gotland_slider' ) );
+		add_theme_support( 'post-thumbnails', array( 'post', 'vmc_gotland_employees' ) );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
