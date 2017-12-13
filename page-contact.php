@@ -21,12 +21,14 @@ get_header(); ?>
             <?php employeePosts('kundservice', 'Kundservice') ?>
 
             <?php employeePosts('bil-transportbilsforsaljning', 'Bil- &amp; Transportbilsförsäljning') ?>
-
-            <?php employeePosts('reservdelar', 'Reservdelar') ?>
             
             <?php employeePosts('verkstad-personlig-servicetekniker', 'Verkstad – Personlig Servicetekniker') ?>
             
             <?php employeePosts('verkstad-interntekniker', 'Verkstad – Interntekniker') ?>
+            
+            <?php employeePosts('reservdelar', 'Reservdelar') ?>
+
+            <?php employeePosts('rekond', 'Rekond') ?>
 
             <?php employeePosts('ekonomi-administartion', 'Ekonomi &amp; Administartion') ?>
 

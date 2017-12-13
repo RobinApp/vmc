@@ -53,3 +53,7 @@ h2 {
     $map: (320: 18, 768: 22, 1024: 26);
     font-size: least-squares-fit($map);
 }
+h3 {
+  $map: (320: 16, 768: 20, 1024: 22);
+  font-size: least-squares-fit($map);
+}
