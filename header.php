@@ -31,7 +31,7 @@ require_once('includes.php');
 
 		<div id="site-navigation-mobile" class="main-navigation-mobile">
 			<div class="main-navigation-mobile__group main-navigation-mobile__nav">
-				<a href="#" id="mobile-menu-toggle">Meny</a>
+				<a id="mobile-menu-toggle">Meny</a>
 			</div><!-- .main-navigation-mobile -->
 
 			<div class="main-navigation-mobile__group main-navigation-mobile__logo">

@@ -10,7 +10,7 @@ function standardSlider($val) {
 
     global $standardSlider;
     
-    // Query to only get posts from CPT vmc_gotland_slider with a spcific tag
+    // Query to only get posts from CPT vmc_gotland_slider with a specific tag
     // $query = new WP_Query( array( 'post_type' => $standardSlider, 'slide-tag' => $val ) );
     $query = new WP_Query( array(
         'tax_query' => array(
@@ -159,3 +159,53 @@ function employeePosts($val, $val2) {
     </div><!-- .vmc-employee__wrapper -->
     <?php 
 }
+
+function contactBanner($val) {
+    
+        global $standardSlider;
+        
+        // Query to only get posts from CPT vmc_gotland_slider with a specific tag
+        // $query = new WP_Query( array( 'post_type' => $standardSlider, 'slide-tag' => $val ) );
+        $query = new WP_Query( array(
+            'tax_query' => array(
+                array(
+                    'taxonomy'  => 'vmc_gotland_tag_slider',
+                    'field'     => 'slug',
+                    'terms'     =>  $val,
+                ),
+            ),
+            'post_type' => $standardSlider,
+            'order'     =>'ASC',
+        ));
+    
+        ?>
+        <div class="vmc-contact-banner__container">
+            <section class="vmc-contact-banner__wrapper">
+                <?php 
+    
+                // For displaying "Slider" posts
+                if ( $query->have_posts() ) {
+    
+                    while ( $query->have_posts() ) {
+    
+                        $query->the_post();
+    
+                        $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
+                        $background = "style=\"background-image: url('$thumb_url');\"";
+    
+                        ?>
+                        <article class="vmc-contact-banner__content">
+                            <div class="vmc-contact-banner__img" <?php echo $background; ?>></div>
+                            <div class="vmc-contact-banner__txt">
+                                <h1><?php // the_title(); ?></h1>
+                                <p><?php // the_content(); ?></p>
+                            </div>
+                        </article><!-- .vmc-contact-banner__content -->
+                        <?php         
+                    }
+                }
+                ?>
+            </section><!-- .vmc-contact-banner__wrapper -->
+        </div><!-- .vmc-contact-banner__container -->
+        <?php 
+    }

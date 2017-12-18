@@ -1,6 +1,150 @@
+.vmc-contact-banner {
+    box-sizing: $boxSizing;
+    width: 100%;
+    &__container {
+        display: none;
+    }
+    &__container,
+    &__wrapper,
+    &__content,
+    &__img,
+    &__txt {
+        box-sizing: inherit;
+    }
+    &__container,
+    &__wrapper,
+    &__content,
+    &__img {
+        width: 100%;
+        height: 100%;
+    }
+    &__img {
+        @extend .bg-img;
+    }
+
+    &__map-container {
+        height: calc(100vh - 50px);
+        width: 100%;
+    }
+    &__contact-container {
+        @include flex-box(column, center, nowrap);
+        background-color: rgba(255, 255, 255, 0.7);
+        height: 100%;
+        width: 100%;
+        .button {
+            border: 1px solid $black;
+            align-self: center;
+        }
+    }
+    &__phone,
+    &__email,
+    &__address {
+        @include flex-box(row, space-between, nowrap);
+        margin: 0 auto;
+        margin-bottom: 30px;
+        width: 250px;
+        i,
+        section {
+            align-self: center;
+        }
+        i {
+            @include flex-box(row, center, wrap);
+            color: $color_3;
+            font-size: 25px;
+            font-weight: 700;
+            height: 30px;
+            padding: 10px;
+            width: 30px;
+            &:before {
+                align-self: center;
+            }
+        }
+        section {
+            box-sizing: $boxSizing;
+            padding-left: 20px;
+            width: 200px
+        }
+        p {
+            margin: 0;
+            padding: 10px 0;
+        }
+    }
+
+    &__opening-hours-container {
+        box-sizing: $boxSizing;
+        padding: 10px;
+        width: 100%;
+        h3,
+        p {
+            text-align: center;
+        }
+    }
+    &__opening-hours-heading {
+        background-color: rgba(170, 170, 170, 0.1);
+        box-sizing: $boxSizing;
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    &__form {
+        box-sizing: $boxSizing;
+        padding: 10px;
+        width: 100%;
+        span {
+            color: #ff0000;
+        }
+        h2 {
+            box-sizing: inherit;
+            margin: 0 auto;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+        p {
+            width: 100%;
+            margin: 5px auto;
+        }
+        .wpcf7-text,
+        .wpcf7-textarea {
+            width: 100%;
+            border: 1px solid $color_5;
+            padding: 10px;
+            box-sizing: $boxSizing;
+            font-size: 16px;
+            resize: none;
+            margin-top: 5px;
+        }
+        .wpcf7-submit {
+            background-color: $color_3;
+            border: none;
+            box-sizing: $boxSizing;
+            color: $white;
+            display: block;
+            font-weight: 700;
+            margin: 0 auto;
+            padding: 10px;
+            width: 100%;
+        }
+    }
+
+    .map-widget {
+        position: relative;
+        top: calc(-100vh + 50px);
+        z-index: -1;
+        // Remove buttons and logo from the map
+        .gmnoprint,
+        button, 
+        a {
+            display: none !important;
+        }
+    }
+}
+
 .vmc-contact {
     box-sizing: $boxSizing;
-    color: $color_4;
+    color: $color_5;
 
     &__wrapper,
     &__employee-container,
@@ -48,6 +192,76 @@
             margin: 0;
             padding: 10px 0;
         }
+    }
+}
+
+@media screen and (min-width: 568px) {
+    .vmc-contact-banner {
+        &__map-container {
+            height: calc(110vh);
+            .map-widget {
+                top: -110vh;
+            }
+        }
+        &__opening-hours-container {
+            @include flex-box(row, space-between, wrap);
+            section {
+                box-sizing: $boxSizing;
+                width: 33%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .vmc-contact-banner {
+        &__form {
+            p {
+                width: 80%;
+            }
+            .wpcf7-submit {
+                max-width: 200px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .vmc-contact-banner {
+        @include flex-box(row, flex-start, wrap);
+        &__map-container {
+            height: calc(100vh - 50px);
+            .map-widget {
+                top: calc(-100vh + 50px);
+            }
+        }
+        &__phone {
+            margin-top: -20%;
+        }
+        &__form {
+            width: 50%;
+            p {
+                width: 80%;
+            }
+        }
+        &__opening-hours-container {
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 50%;
+            section {
+                align-self: center;
+                width: 100%;
+            }
+        }
+        &__opening-hours-heading {
+            background-color: $white;
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .vmc-contact-banner {
+        // height: calc(100vh - 80px);
     }
 }
 

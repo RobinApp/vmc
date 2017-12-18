@@ -8,13 +8,22 @@
 "_footer",
 "_error",
 "_home",
-"_contact";
+"_contact",
+"_widgets";
 
 // Override WP styling
 
 body {
     margin: 0 !important;
     font-family: $font;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 500;
+    }
 }
 
 html {

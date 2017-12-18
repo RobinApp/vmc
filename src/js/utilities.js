@@ -13,6 +13,9 @@ export function currentYPosition() {
     return 0;
 }
 
+// When calling the smoothScroll function add the element id of the element 
+// you wish to scroll to as a parameter (need to be a string).
+
 export function elmYPosition(eID) {
     var elm = document.getElementById(eID);
     var y = elm.offsetTop;

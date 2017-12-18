@@ -109,14 +109,65 @@ add_action( 'after_setup_theme', 'vmc_gotland_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function vmc_gotland_widgets_init() {
+	// Widget for phone number
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Sidebar Phone', 'vmc_gotland' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s phone-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title phone-widget__heading">',
+		'after_title'   => '</h2>',
+	) );
+	// Widget for email address
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar Email', 'vmc_gotland' ),
+		'id'            => 'sidebar-2',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s email-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title email-widget__heading">',
+		'after_title'   => '</h2>',
+	) );
+	// Widget for address
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar Address', 'vmc_gotland' ),
+		'id'            => 'sidebar-3',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s address-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title address-widget__heading">',
+		'after_title'   => '</h2>',
+	) );
+	// Widget for map
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar Map', 'vmc_gotland' ),
+		'id'            => 'sidebar-4',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s map-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title map-widget__heading">',
+		'after_title'   => '</h2>',
+	) );
+	// Widget for contact form
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar Contact Form', 'vmc_gotland' ),
+		'id'            => 'sidebar-5',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s vmc-contact-banner__form">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
+	) );
+	// Widget for opening hours
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar Opening Hours', 'vmc_gotland' ),
+		'id'            => 'sidebar-6',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s open-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="open-widget__heading">',
+		'after_title'   => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'vmc_gotland_widgets_init' );

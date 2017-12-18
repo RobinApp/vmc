@@ -92,6 +92,9 @@ function currentYPosition() {
     return 0;
 }
 
+// When calling the smoothScroll function add the element id of the element 
+// you wish to scroll to as a parameter (need to be a string).
+
 function elmYPosition(eID) {
     var elm = document.getElementById(eID);
     var y = elm.offsetTop;
@@ -177,10 +180,13 @@ var _mainNavigation = __webpack_require__(3);
 
 var _footer = __webpack_require__(4);
 
+var _contact = __webpack_require__(5);
+
 var _utilities = __webpack_require__(0);
 
 var mainNavigationOne = new _mainNavigation.MainNavigation();
 var footerOne = new _footer.Footer();
+var contactOne = new _contact.Contact();
 
 // detectBrowser();
 
@@ -312,6 +318,47 @@ var Footer = exports.Footer = function () {
     }]);
 
     return Footer;
+}();
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Contact = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _utilities = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Contact = exports.Contact = function () {
+    function Contact() {
+        var _this = this;
+
+        _classCallCheck(this, Contact);
+
+        this.elementID = 'vmc-opening-hours';
+        this.scrollBtn = document.querySelector('.opening-hour-button');
+        this.scrollBtn.addEventListener('click', function (e) {
+            return _this.scrollToTop(e);
+        });
+    }
+
+    _createClass(Contact, [{
+        key: 'scrollToTop',
+        value: function scrollToTop(e) {
+            (0, _utilities.smoothScroll)(this.elementID);
+        }
+    }]);
+
+    return Contact;
 }();
 
 /***/ })
