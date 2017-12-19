@@ -122,7 +122,6 @@
             box-sizing: $boxSizing;
             color: $white;
             display: block;
-            font-weight: 700;
             margin: 0 auto;
             padding: 10px;
             width: 100%;
@@ -204,7 +203,7 @@
             }
         }
         &__opening-hours-container {
-            @include flex-box(row, space-between, wrap);
+            @include flex-box(row, space-around, wrap);
             section {
                 box-sizing: $boxSizing;
                 width: 33%;
@@ -229,43 +228,130 @@
 @media screen and (min-width: 768px) {
     .vmc-contact-banner {
         @include flex-box(row, flex-start, wrap);
-        &__map-container {
+        &__container {
+            display: block;
             height: calc(100vh - 50px);
+        }
+        &__map-container {
+            height: calc(40vh - 50px);
+            left: 25%;
+            opacity: 0.9;
+            overflow: hidden;
+            position: absolute;
+            top: 20vh;
+            width: 50%;
+            z-index: 0;
             .map-widget {
-                top: calc(-100vh + 50px);
+                top: calc(-40vh + 50px);
             }
         }
-        &__phone {
-            margin-top: -20%;
-        }
         &__form {
+            @include flex-box(row, center, wrap);
+            background-color: #003057;
+            color: #fff;
+            height: calc(40vh - 50px);
+            left: 25%;
+            opacity: 0.9;
+            overflow: auto;
+            padding: 0;
+            position: absolute;
+            top: calc(20vh + 40vh -50px); // Top of &__map-container + it's own height
             width: 50%;
+            h2 {
+                font-size: 22px;
+            }
+            h2,
             p {
                 width: 80%;
             }
-        }
-        &__opening-hours-container {
-            flex-direction: column;
-            justify-content: flex-start;
-            width: 50%;
-            section {
-                align-self: center;
+            h2,
+            .wpcf7-text,
+            .wpcf7-textarea {
+                padding: 3px;
+            }
+            .wpcf7-textarea {
+                height: 90px;
+            }
+            .wpcf7-submit {
+                border: 1px solid $white;
+                max-width: 120px;
+                padding: 10px 20px;
+            }
+            .textwidget,
+            .wpcf7-form {
                 width: 100%;
             }
-        }
-        &__opening-hours-heading {
-            background-color: $white;
         }
     }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px ) and (orientation: landscape) {
     .vmc-contact-banner {
-        // height: calc(100vh - 80px);
+        &__container {
+            height: calc(100vh - 50px);
+        }
+        &__map-container,
+        &__form {
+            height: calc(55vh - 50px);
+            top: calc(55vh + 50px - 27.5vh);
+            width: 40%;
+        }
+        &__map-container {
+            left: calc(50% - 40%);
+            .map-widget {
+                top: calc(-55vh + 50px);
+            }
+        }
+        &__form {
+            left: 50%;
+            h2,
+            .textwidget {
+                align-self: center;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 1025px) and (orientation: landscape) {
+    .vmc-contact-banner {
+        &__container {
+            height: calc(100vh - 80px);
+        }
+        &__map-container,
+        &__form {
+            height: calc(50vh - 80px);
+            top: calc(50vh + 80px - 25vh);
+            width: 40%;
+        }
+        &__map-container {
+            left: calc(50% - 40%);
+            .map-widget {
+                top: calc(-50vh + 80px);
+            }
+        }
+        &__form {
+            left: 50%;
+            h2,
+            .textwidget {
+                align-self: center;
+            }
+        }
     }
 }
 
 @media screen and (min-width: 1024px) {
+    .vmc-contact-banner {
+        &__opening-hours-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 10px 0;
+            section {
+                max-width: 250px;
+            }
+        }
+    }
+
     .vmc-contact {
         &__employee-container {
             max-width: 1300px;
@@ -281,7 +367,62 @@
     }
 }
 
-@media screen and (min-width: 1540px) {
+@media screen and (min-width: 1025px) and (max-height: 768px) {
+    .vmc-contact-banner {
+        &__container {
+            height: calc(100vh - 80px);
+        }
+        &__map-container,
+        &__form {
+            height: calc(60vh - 80px);
+            // top: calc(60vh + 80px - 30vh);
+            top: calc(50vh - 30vh + 40px);
+            width: 40%;
+        }
+        &__map-container {
+            left: calc(50% - 40%);
+            .map-widget {
+                top: calc(-60vh + 80px);
+            }
+        }
+        &__form {
+            left: 50%;
+            h2,
+            .textwidget {
+                align-self: center;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1536px) and (max-height: 768px) {
+    .vmc-contact-banner {
+        &__container {
+            height: calc(100vh - 80px);
+        }
+        &__map-container,
+        &__form {
+            height: 400px;
+            top: calc(50vh - 200px + 40px);
+            width: 550px;
+        }
+        &__map-container {
+            left: calc(50% - 550px);
+            .map-widget {
+                top: -400px;
+            }
+        }
+        &__form {
+            left: 50%;
+            h2,
+            .textwidget {
+                align-self: center;
+            }
+        }
+        &__opening-hours-container {
+            max-width: 1350px;
+        }
+    }
     .vmc-contact {
         &__employee-container {
             max-width: 1350px;
@@ -290,6 +431,11 @@
 }
 
 @media screen and (min-width: 1920px) {
+    .vmc-contact-banner {
+        &__opening-hours-container {
+            max-width: 1550px;
+        }
+    }
     .vmc-contact {
         &__employee-container {
             max-width: 1550px;

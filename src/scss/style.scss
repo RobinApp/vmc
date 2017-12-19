@@ -13,6 +13,10 @@
 
 // Override WP styling
 
+html {
+    margin-top: 0 !important;
+}
+
 body {
     margin: 0 !important;
     font-family: $font;
@@ -26,6 +30,10 @@ body {
     }
 }
 
-html {
-    margin-top: 0 !important;
+.wpcf7-text,
+.wpcf7-textarea,
+.wpcf7-submit {
+    font-family: $font;
+    font-size: 16px;
 }
+
