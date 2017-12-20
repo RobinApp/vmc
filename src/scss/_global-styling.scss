@@ -13,6 +13,11 @@
 //   outline: 1px solid $color_2;
 }
 
+a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
 .button {
     border: 1px solid $white;
     box-sizing: $boxSizing;
