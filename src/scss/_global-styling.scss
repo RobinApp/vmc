@@ -76,6 +76,7 @@ a {
     .vmc-standard-post {
         &__content {
             @include flex-box(row, flex-start, wrap);
+            padding: 10px;
             padding-top: 30px;
             &:nth-child(even) {
                 flex-flow: row-reverse;
