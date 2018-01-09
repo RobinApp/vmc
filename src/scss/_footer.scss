@@ -7,7 +7,8 @@
     &__wrapper {
         padding: 50px 10px;
     }
-    &__navigation {
+    &__navigation,
+    &__info-widget {
         margin: 0 auto;
         width: 50%;
         .menu-item {
@@ -45,10 +46,10 @@
 
 @media screen and (min-width: 640px) {
     .site-footer {
-        &__navigation {
+        &__navigation,
+        &__info-widget {
             width: 80%;
-            #menu-footer,
-            #menu-footer-cars {
+            .menu {
                 @include flex-box(row, center, nowrap);
                 a {
                     padding: 10px;
@@ -64,6 +65,7 @@
 @media screen and (min-width: 1025px) {
     .site-footer {
         &__navigation,
+        &__info-widget,
         &__media {
             a {
                 &:hover {

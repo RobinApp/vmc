@@ -169,6 +169,16 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h3 class="open-widget__heading">',
 		'after_title'   => '</h3>',
 	) );
+	// Widget for info menu in footer, for cookies, terms, privacy policy and social medias.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar Info Menu', 'vmc_gotland' ),
+		'id'            => 'sidebar-7',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s site-footer__info-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="info-widget__heading">',
+		'after_title'   => '</h3>',
+	) );
 }
 add_action( 'widgets_init', 'vmc_gotland_widgets_init' );
 

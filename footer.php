@@ -42,6 +42,8 @@ require_once('includes.php');
 				<p>Copyright &copy; <?php echo date('Y'); ?> AB Visby Motorcentral</P>
 			</div>
 
+			<?php  dynamic_sidebar('sidebar-7'); ?> <!-- Info Menu sidebar -->
+
 			<div class="site-footer__logo">
 				<?php
 					if ( $attachments = get_children( array(
