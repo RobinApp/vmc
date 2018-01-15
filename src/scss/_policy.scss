@@ -1,0 +1,46 @@
+.vmc-policy-posts {
+    box-sizing: $boxSizing;
+    b {
+        font-weight: 500;
+    }
+    a {
+        color: $color_6 !important;
+    }
+    &__container,
+    &__wrapper,
+    &__content {
+        box-sizing: inherit;
+    }
+    &__container {
+        padding-bottom: 30px;
+    }
+    &__content {
+        padding: 10px;
+        h2,
+        p {
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+    }
+    &__txt {
+        color: $color_4;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .vmc-policy-posts {
+        &__content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .vmc-policy-posts {
+        &__content {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+    }
+}

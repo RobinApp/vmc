@@ -52,6 +52,7 @@ if ( ! function_exists( 'vmc_gotland_setup' ) ) :
 		// Custom Post Types
 		add_theme_support( 'post-thumbnails', array( 'post', 'vmc_gotland_slider' ) );
 		add_theme_support( 'post-thumbnails', array( 'post', 'vmc_gotland_employees' ) );
+		add_theme_support( 'post-thumbnails', array( 'post', 'vmc_gotland_policy' ) );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -177,6 +178,16 @@ function vmc_gotland_widgets_init() {
 		'before_widget' => '<section id="%1$s" class="widget %2$s site-footer__info-widget">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="info-widget__heading">',
+		'after_title'   => '</h3>',
+	) );
+	// Widget TacdisEcom.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar TacdisEcom', 'vmc_gotland' ),
+		'id'            => 'sidebar-8',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s tacdis-ecom-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="tacdis-ecom-widget__heading">',
 		'after_title'   => '</h3>',
 	) );
 }

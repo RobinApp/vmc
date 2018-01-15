@@ -135,18 +135,18 @@
         }
         &__nav,
         &__cars {
-            width: calc(50% - 100px);
+            width: calc(50% - 75px);
         }
         &__logo {
-            width: 200px;
+            width: 150px;
             img {
-                height: 40px;
-                width: 102px;
+                height: 45px;
+                width: 115px;
                 object-fit: cover;
             }
             a {
                 @include flex-box(row, center, wrap);
-                width: 102px;
+                width: 128px;
             }
         }
         &__group {

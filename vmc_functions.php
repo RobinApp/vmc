@@ -5,6 +5,11 @@ $val2; // If extra parameter is needed (should be a string).
 $standardSlider = 'vmc_gotland_slider'; // CPT Slider
 $standardPosts = 'post'; // Standard Posts
 $employeePosts = 'vmc_gotland_employee'; // CPT Employee
+$policyPosts = 'vmc_gotland_policy'; // CPT Policy
+
+// ****************************************************************************************************
+// ***************************************** Standard Slider ******************************************
+// ****************************************************************************************************
 
 function standardSlider($val) {
 
@@ -59,6 +64,10 @@ function standardSlider($val) {
     <?php 
 }
 
+// ****************************************************************************************************
+// ****************************************** Standard Posts ******************************************
+// ****************************************************************************************************
+
 function standardPost($val) {
 
     // The function must be called for within a container element with the class name "vmc-standard-post"
@@ -100,6 +109,65 @@ function standardPost($val) {
     <?php 
 }
 
+// ****************************************************************************************************
+// ******************************************* Policy Posts *******************************************
+// ****************************************************************************************************
+
+// Used on the info page for cookies, terms, privacy policies and social media.
+
+function policyPosts($val) {
+    
+    // The function must be called for within a container element with the class name "vmc-policy-posts"
+    
+    global $policyPosts;
+    
+        // Query to only get employee posts with a specific category
+        $query = new WP_Query( array(
+            'tax_query' => array(
+                array(
+                    'taxonomy'  => 'vmc_gotland_cat_policy',
+                    'field'     => 'slug',
+                    'terms'     =>  $val,
+                ),
+            ),
+            'post_type' => $policyPosts,
+            'order'     =>'ASC',
+        ));
+        ?>
+    <div class="vmc-policy-posts__container">
+        <section class="vmc-policy-posts__wrapper">
+        <?php 
+
+        // For displaying posts
+        if ( $query->have_posts() ) {
+
+            while ( $query->have_posts() ) {
+
+                $query->the_post();
+
+                $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
+                $background = "style=\"background-image: url('$thumb_url');\"";
+
+                ?>
+                <article class="vmc-policy-posts__content">
+                    <div class="vmc-policy-posts__txt">
+                        <h2><?php the_title(); ?></h2>
+                        <p><?php the_content(); ?></p>
+                    </div>
+                </article><!-- .vmc-policy-posts__content -->
+                <?php         
+            }
+        }
+        ?>
+        </section><!-- .vmc-policy-posts__wrapper -->
+    </div><!-- .vmc-policy-posts__container -->
+    <?php 
+}
+
+// ****************************************************************************************************
+// ****************************************** Employee Posts ******************************************
+// ****************************************************************************************************
+
 // To get custom fields in the employeePosts function.
 function customFields($val) {
     if ( get_field($val) ) {
@@ -109,7 +177,7 @@ function customFields($val) {
 
 function employeePosts($val, $val2) {
 
-    // The function must be called for within a container element with the class name "vmc-standard-post"
+    // The function must be called for within a container element with the class name "vmc-contact"
 
     global $employeePosts;
 
@@ -160,52 +228,56 @@ function employeePosts($val, $val2) {
     <?php 
 }
 
+// ****************************************************************************************************
+// ****************************************** Contact Banner ******************************************
+// ****************************************************************************************************
+
 function contactBanner($val) {
     
-        global $standardSlider;
-        
-        // Query to only get posts from CPT vmc_gotland_slider with a specific tag
-        // $query = new WP_Query( array( 'post_type' => $standardSlider, 'slide-tag' => $val ) );
-        $query = new WP_Query( array(
-            'tax_query' => array(
-                array(
-                    'taxonomy'  => 'vmc_gotland_tag_slider',
-                    'field'     => 'slug',
-                    'terms'     =>  $val,
-                ),
+    global $standardSlider;
+    
+    // Query to only get posts from CPT vmc_gotland_slider with a specific tag
+    // $query = new WP_Query( array( 'post_type' => $standardSlider, 'slide-tag' => $val ) );
+    $query = new WP_Query( array(
+        'tax_query' => array(
+            array(
+                'taxonomy'  => 'vmc_gotland_tag_slider',
+                'field'     => 'slug',
+                'terms'     =>  $val,
             ),
-            'post_type' => $standardSlider,
-            'order'     =>'ASC',
-        ));
-    
-        ?>
-        <div class="vmc-contact-banner__container">
-            <section class="vmc-contact-banner__wrapper">
-                <?php 
-    
-                // For displaying "Slider" posts
-                if ( $query->have_posts() ) {
-    
-                    while ( $query->have_posts() ) {
-    
-                        $query->the_post();
-    
-                        $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
-                        $background = "style=\"background-image: url('$thumb_url');\"";
-    
-                        ?>
-                        <article class="vmc-contact-banner__content">
-                            <div class="vmc-contact-banner__img" <?php echo $background; ?>></div>
-                            <div class="vmc-contact-banner__txt">
-                                <h1><?php // the_title(); ?></h1>
-                                <p><?php // the_content(); ?></p>
-                            </div>
-                        </article><!-- .vmc-contact-banner__content -->
-                        <?php         
-                    }
+        ),
+        'post_type' => $standardSlider,
+        'order'     =>'ASC',
+    ));
+
+    ?>
+    <div class="vmc-contact-banner__container">
+        <section class="vmc-contact-banner__wrapper">
+            <?php 
+
+            // For displaying "Slider" posts
+            if ( $query->have_posts() ) {
+
+                while ( $query->have_posts() ) {
+
+                    $query->the_post();
+
+                    $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
+                    $background = "style=\"background-image: url('$thumb_url');\"";
+
+                    ?>
+                    <article class="vmc-contact-banner__content">
+                        <div class="vmc-contact-banner__img" <?php echo $background; ?>></div>
+                        <div class="vmc-contact-banner__txt">
+                            <h1><?php // the_title(); ?></h1>
+                            <p><?php // the_content(); ?></p>
+                        </div>
+                    </article><!-- .vmc-contact-banner__content -->
+                    <?php         
                 }
-                ?>
-            </section><!-- .vmc-contact-banner__wrapper -->
-        </div><!-- .vmc-contact-banner__container -->
-        <?php 
-    }
+            }
+            ?>
+        </section><!-- .vmc-contact-banner__wrapper -->
+    </div><!-- .vmc-contact-banner__container -->
+    <?php 
+}

@@ -33,7 +33,7 @@ require_once('includes.php');
 				<a href="#" target="_blank" title="Twitter">
 					<i class="fa fa-twitter" aria-hidden="true"></i>
 				</a>
-				<a href="#" target="_blank" title="YouTube">
+				<a href="https://www.youtube.com/channel/UC86lyzSTIrSHEEBXnYZk1VA" target="_blank" title="YouTube">
 					<i class="fa fa-youtube" aria-hidden="true"></i>				
 				</a>
 			</div>

@@ -1,0 +1,55 @@
+// To override plugin styling for cookie notification (Plugin: Cookie Notice by dfactory)
+
+// Cookie notice block
+#cookie-notice {
+    background-color: rgba(255, 255, 255, 0.9) !important; 
+    border-top: 1px solid $color_4;
+    box-sizing: $boxSizing;
+    font-size: 16px;
+    // Cookie notice container
+    .cookie-notice-container {
+        box-sizing: inherit;
+        // Cookie notice text
+        #cn-notice-text {
+            box-sizing: inherit;
+            display: block;
+            font-size: inherit;
+            padding: 10px;
+        }
+        // Cookie notice links/buttons
+        #cn-accept-cookie,
+        #cn-more-info {
+            border: 1px solid $color_4;
+            border-radius: 0;
+            box-sizing: inherit;
+            display: block;
+            font-size: inherit;
+            margin: 10px auto;
+            max-width: 250px;
+            padding: 10px 20px;
+        }
+    }
+}
+
+// For desktop or large devices
+@media screen and (min-width: 1025px) {
+    // Cookie notice block
+    #cookie-notice {
+        border: 1px solid $color_2;
+        height: 260px !important;
+        left: calc(100% - 400px);
+        margin: 0 auto;
+        min-width: 400px !important;
+        width: 400px !important;
+        // Cookie notice container
+        .cookie-notice-container {
+            // Cookie notice links/buttons
+            #cn-accept-cookie,
+            #cn-more-info {
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+}
