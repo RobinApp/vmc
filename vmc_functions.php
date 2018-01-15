@@ -20,7 +20,7 @@ function standardSlider($val) {
     $query = new WP_Query( array(
         'tax_query' => array(
             array(
-                'taxonomy'  => 'vmc_gotland_tag_slider',
+                'taxonomy'  => 'vmc_gotland_cat_slider',
                 'field'     => 'slug',
                 'terms'     =>  $val,
             ),

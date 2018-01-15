@@ -13,7 +13,7 @@ get_header(); ?>
 
     <div class="vmc-contact-banner">
 
-        <?php contactBanner('kontakt'); ?>
+        <?php contactBanner('contact'); ?>
 
         <div class="vmc-contact-banner__map-container">
 

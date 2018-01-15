@@ -14,7 +14,7 @@ get_header(); ?>
 
     <div id="slider-home" class="vmc-slider">
 
-    <?php standardSlider('startsida'); ?>
+    <?php standardSlider('home-page'); ?>
     </div>
 
 	<div id="primary" class="content-area">
