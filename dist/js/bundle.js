@@ -77,11 +77,14 @@ exports.hasClass = hasClass;
 exports.currentYPosition = currentYPosition;
 exports.elmYPosition = elmYPosition;
 exports.smoothScroll = smoothScroll;
-exports.detectBrowser = detectBrowser;
+// Check if element has class
 function hasClass(el, cls) {
     return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
 };
 
+// Smooth Scroll by Andrew Johnson
+
+// Calculate current position
 function currentYPosition() {
     // Firefox, Chrome, Opera, Safari
     if (self.pageYOffset) return self.pageYOffset;
@@ -95,6 +98,7 @@ function currentYPosition() {
 // When calling the smoothScroll function add the element id of the element 
 // you wish to scroll to as a parameter (need to be a string).
 
+// Calculate position of the element to scroll to
 function elmYPosition(eID) {
     var elm = document.getElementById(eID);
     var y = elm.offsetTop;
@@ -105,6 +109,7 @@ function elmYPosition(eID) {
     }return y;
 }
 
+// Scroll function
 function smoothScroll(eID) {
     var startY = currentYPosition();
     var stopY = elmYPosition(eID);
@@ -145,27 +150,20 @@ var mySwiper = new Swiper('.swiper-container', {
         prevEl: '.swiper-button-prev'
     },
 
-    // And if we need scrollbar
-    // scrollbar: {
-    //   el: '.swiper-scrollbar',
-    // },
+    // Swipe speed
     speed: 800,
 
     hideOnClick: true,
     disabledClass: 'swiper-button-disabled',
     hiddenClass: 'swiper-button-hidden',
 
+    // Autoplay interval time
     autoplay: {
         delay: 7000
     }
 });
 
 exports.default = mySwiper;
-function detectBrowser() {
-    var isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-    isIE === true ? alert('Vi har uppmärksammat att du använder webbläsaren Internet Explorer, ' + 'denna webbläsare saknar stöd för många funktioner som idag existerar på Internet. ' + 'Vi skulle därför rekomendera att du byter till en modernare webbläsare, ' + 'så som Google Chrome, Microsoft Edge eller Mozilla Firefox. ' + 'OBS, detta är endast en rekommendation.') : '';
-}
 
 /***/ }),
 /* 1 */
@@ -187,8 +185,6 @@ var _utilities = __webpack_require__(0);
 var mainNavigationOne = new _mainNavigation.MainNavigation();
 var footerOne = new _footer.Footer();
 var contactOne = new _contact.Contact();
-
-// detectBrowser();
 
 /***/ }),
 /* 2 */
@@ -232,6 +228,8 @@ var MainNavigation = exports.MainNavigation = function () {
         this.manufacturer;
         this.currentMenuItem();
     }
+    // Toggle menu in mobile/tablet view
+
 
     _createClass(MainNavigation, [{
         key: 'mobileMenuToggle',
@@ -241,6 +239,8 @@ var MainNavigation = exports.MainNavigation = function () {
             this.menuState === false ? this.menuState = true : this.menuState = false;
             return true;
         }
+        // Check if element has class "current-menu-item"
+
     }, {
         key: 'currentMenuItem',
         value: function currentMenuItem() {
@@ -252,6 +252,8 @@ var MainNavigation = exports.MainNavigation = function () {
                 current === true ? _this2.manufacturerMenuStyling() : '';
             });
         }
+        // If current page is a manufacturer page, apply their color to menu item
+
     }, {
         key: 'manufacturerMenuStyling',
         value: function manufacturerMenuStyling() {
@@ -309,6 +311,8 @@ var Footer = exports.Footer = function () {
             return _this.scrollToTop(e);
         });
     }
+    // Scroll to top of page
+
 
     _createClass(Footer, [{
         key: 'scrollToTop',
@@ -346,6 +350,8 @@ var Contact = exports.Contact = function () {
         this.scrollBtn = document.querySelector('.opening-hour-button');
         this.ifButtonExist();
     }
+    // Check if opening hour button exists, if so add event listener
+
 
     _createClass(Contact, [{
         key: 'ifButtonExist',
@@ -356,6 +362,8 @@ var Contact = exports.Contact = function () {
                 return _this.scrollToOpeningHour(e);
             }) : '';
         }
+        // Scroll to opening hours
+
     }, {
         key: 'scrollToOpeningHour',
         value: function scrollToOpeningHour(e) {

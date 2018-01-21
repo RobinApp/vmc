@@ -6,6 +6,7 @@ $standardSlider = 'vmc_gotland_slider'; // CPT Slider
 $standardPosts = 'post'; // Standard Posts
 $employeePosts = 'vmc_gotland_employee'; // CPT Employee
 $policyPosts = 'vmc_gotland_policy'; // CPT Policy
+$promotionPosts = 'vmc_gotland_promo'; // CPT Promotion
 
 // ****************************************************************************************************
 // ***************************************** Standard Slider ******************************************
@@ -279,5 +280,62 @@ function contactBanner($val) {
             ?>
         </section><!-- .vmc-contact-banner__wrapper -->
     </div><!-- .vmc-contact-banner__container -->
+    <?php 
+}
+
+// ****************************************************************************************************
+// ***************************************** Poromtion Posts ******************************************
+// ****************************************************************************************************
+
+// Used on the info page for cookies, terms, privacy policies and social media.
+
+function promotionPosts($val) {
+    
+    // The function must be called for within a container element with the class name "vmc-promotion-posts"
+    
+    global $promotionPosts;
+    
+        // Query to only get employee posts with a specific category
+        $query = new WP_Query( array(
+            'tax_query' => array(
+                array(
+                    'taxonomy'  => 'vmc_gotland_cat_promo',
+                    'field'     => 'slug',
+                    'terms'     =>  $val,
+                ),
+            ),
+            'post_type' => $promotionPosts,
+            'order'     =>'ASC',
+        ));
+        ?>
+    <div class="vmc-promotion-posts__container">
+        <section class="vmc-promotion-posts__wrapper">
+        <?php 
+
+        // For displaying posts
+        if ( $query->have_posts() ) {
+
+            while ( $query->have_posts() ) {
+
+                $query->the_post();
+
+                $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
+                $background = "style=\"background-image: url('$thumb_url');\"";
+
+                ?>
+                <article class="vmc-promotion-posts__content">
+                    <div class="vmc-promotion-posts__img" <?php echo $background; ?>></div>
+                    <div class="vmc-promotion-posts__txt">
+                        <h2><?php the_title(); ?></h2>
+                        <p><?php the_excerpt(); ?></p>
+                        <a href="<?php the_permalink() ?>" title="Länk till <?php the_title_attribute(); ?>">Läs mer</a>
+                    </div>
+                </article><!-- .vmc-promotion-posts__content -->
+                <?php         
+            }
+        }
+        ?>
+        </section><!-- .vmc-promotion-posts__wrapper -->
+    </div><!-- .vmc-promotion-posts__container -->
     <?php 
 }

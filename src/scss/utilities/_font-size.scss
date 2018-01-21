@@ -1,3 +1,5 @@
+// Least Square Fits by Jake Wilson
+
 @function least-squares-fit($map) {
     
     // Get the number of provided breakpoints
@@ -5,7 +7,7 @@
     
     // Error if the number of breakpoints is < 2
     @if ($length < 2) {
-      @error "leastSquaresFit() $map must be at least 2 values"
+      @error "leastSquaresFit() $map must be at least 2 values";
     }
       
     // Calculate the Means

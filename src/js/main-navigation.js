@@ -12,14 +12,14 @@ export class MainNavigation {
         this.manufacturer;
         this.currentMenuItem();
     }
-    
+    // Toggle menu in mobile/tablet view
     mobileMenuToggle(e) {
         this.menuSymbol.innerHTML === 'Meny' ? this.menuSymbol.innerHTML = '&#x02A2F' : this.menuSymbol.innerHTML = 'Meny';
         this.menuState === false ? this.menuToggle.classList.add('main-navigation-toggle') : this.menuToggle.classList.remove('main-navigation-toggle');
         this.menuState === false ? this.menuState = true : this.menuState = false;
         return true;
     }
-
+    // Check if element has class "current-menu-item"
     currentMenuItem() {
         let current;
         this.menuList.map((i)=> {
@@ -27,7 +27,7 @@ export class MainNavigation {
             current === true ? this.manufacturerMenuStyling() : '';
         });
     }
-
+    // If current page is a manufacturer page, apply their color to menu item
     manufacturerMenuStyling() {
         this.manufacturer = document.querySelector('.current-menu-item');
         let currentManufacturer = this.manufacturer.children[0].innerHTML;

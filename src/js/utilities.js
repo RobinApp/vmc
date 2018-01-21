@@ -1,7 +1,11 @@
+// Check if element has class
 export function hasClass(el, cls) {
     return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
 };
 
+// Smooth Scroll by Andrew Johnson
+
+// Calculate current position
 export function currentYPosition() {
     // Firefox, Chrome, Opera, Safari
     if (self.pageYOffset) return self.pageYOffset;
@@ -16,6 +20,7 @@ export function currentYPosition() {
 // When calling the smoothScroll function add the element id of the element 
 // you wish to scroll to as a parameter (need to be a string).
 
+// Calculate position of the element to scroll to
 export function elmYPosition(eID) {
     var elm = document.getElementById(eID);
     var y = elm.offsetTop;
@@ -26,6 +31,7 @@ export function elmYPosition(eID) {
     } return y;
 }
 
+// Scroll function
 export function smoothScroll(eID) {
     var startY = currentYPosition();
     var stopY = elmYPosition(eID);
@@ -66,29 +72,17 @@ let mySwiper = new Swiper ('.swiper-container', {
       prevEl: '.swiper-button-prev',
     },
 
-    // And if we need scrollbar
-    // scrollbar: {
-    //   el: '.swiper-scrollbar',
-    // },
+    // Swipe speed
     speed: 800,
 
     hideOnClick: true,
     disabledClass: 'swiper-button-disabled',
     hiddenClass: 'swiper-button-hidden',
 
+    // Autoplay interval time
     autoplay: {
         delay: 7000,
       },
   })
 
 export default mySwiper;
-
-export function detectBrowser() {
-    let isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-    isIE === true ? alert('Vi har uppmärksammat att du använder webbläsaren Internet Explorer, ' + 
-                            'denna webbläsare saknar stöd för många funktioner som idag existerar på Internet. ' + 
-                            'Vi skulle därför rekomendera att du byter till en modernare webbläsare, ' +
-                            'så som Google Chrome, Microsoft Edge eller Mozilla Firefox. ' + 
-                            'OBS, detta är endast en rekommendation.') : '';
-}

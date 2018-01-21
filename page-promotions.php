@@ -13,8 +13,8 @@ get_header(); ?>
 
    <div id="primary" class="content-area">
        <main id="main" class="site-main">
-           <div class="vmc-standard-post">
-               <?php //standardPost('about'); ?>
+           <div class="vmc-promotion-posts">
+               <?php promotionPosts('promotion'); ?>
            </div><!-- .vmc-standard-post -->
        </main><!-- #main -->
    </div><!-- #primary -->

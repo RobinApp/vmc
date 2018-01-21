@@ -6,6 +6,7 @@ export class Footer {
         this.scrollBtn = document.querySelector('.scroll-top-btn');
         this.scrollBtn.addEventListener('click', e => this.scrollToTop(e));
     }
+    // Scroll to top of page
     scrollToTop(e) {
         smoothScroll(this.elementID);
     }
