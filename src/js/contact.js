@@ -4,9 +4,12 @@ export class Contact {
     constructor() {
         this.elementID = 'vmc-opening-hours';
         this.scrollBtn = document.querySelector('.opening-hour-button');
-        this.scrollBtn.addEventListener('click', e => this.scrollToTop(e));
+        this.ifButtonExist();
     }
-    scrollToTop(e) {
+    ifButtonExist() {
+        this.scrollBtn !== null ? this.scrollBtn.addEventListener('click', e => this.scrollToOpeningHour(e)) : '';
+    }
+    scrollToOpeningHour(e) {
         smoothScroll(this.elementID);
     }
 }

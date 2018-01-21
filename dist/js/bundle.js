@@ -340,20 +340,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var Contact = exports.Contact = function () {
     function Contact() {
-        var _this = this;
-
         _classCallCheck(this, Contact);
 
         this.elementID = 'vmc-opening-hours';
         this.scrollBtn = document.querySelector('.opening-hour-button');
-        this.scrollBtn.addEventListener('click', function (e) {
-            return _this.scrollToTop(e);
-        });
+        this.ifButtonExist();
     }
 
     _createClass(Contact, [{
-        key: 'scrollToTop',
-        value: function scrollToTop(e) {
+        key: 'ifButtonExist',
+        value: function ifButtonExist() {
+            var _this = this;
+
+            this.scrollBtn !== null ? this.scrollBtn.addEventListener('click', function (e) {
+                return _this.scrollToOpeningHour(e);
+            }) : '';
+        }
+    }, {
+        key: 'scrollToOpeningHour',
+        value: function scrollToOpeningHour(e) {
             (0, _utilities.smoothScroll)(this.elementID);
         }
     }]);
