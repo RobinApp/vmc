@@ -18,6 +18,6 @@ get_header(); ?>
            </div><!-- .vmc-standard-post -->
        </main><!-- #main -->
    </div><!-- #primary -->
-
+    
 <?php
 get_footer();

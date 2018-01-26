@@ -113,7 +113,7 @@ add_action( 'after_setup_theme', 'vmc_gotland_content_width', 0 );
 function vmc_gotland_widgets_init() {
 	// Widget for phone number
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar Phone', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Phone Widget', 'vmc_gotland' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s phone-widget">',
@@ -123,7 +123,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget for email address
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar Email', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Email Widget', 'vmc_gotland' ),
 		'id'            => 'sidebar-2',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s email-widget">',
@@ -133,7 +133,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget for address
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar Address', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Address Widget', 'vmc_gotland' ),
 		'id'            => 'sidebar-3',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s address-widget">',
@@ -143,7 +143,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget for map
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar Map', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Map Widget', 'vmc_gotland' ),
 		'id'            => 'sidebar-4',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s map-widget">',
@@ -153,7 +153,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget for contact form
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar Contact Form', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Contact Form Widget', 'vmc_gotland' ),
 		'id'            => 'sidebar-5',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s vmc-contact-banner__form">',
@@ -163,7 +163,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget for opening hours
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar Opening Hours', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Opening Hours Widget', 'vmc_gotland' ),
 		'id'            => 'sidebar-6',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s open-widget">',
@@ -173,7 +173,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget for info menu in footer, for cookies, terms, privacy policy and social medias.
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar Info Menu', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Info Menu Widget', 'vmc_gotland' ),
 		'id'            => 'sidebar-7',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s site-footer__info-widget">',
@@ -181,15 +181,55 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h3 class="info-widget__heading">',
 		'after_title'   => '</h3>',
 	) );
-	// Widget TacdisEcom.
+	// Widget TacdisEcom Service Booking.
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar TacdisEcom', 'vmc_gotland' ),
+		'name'          => esc_html__( 'TacdisEcom Service Booking Widget', 'vmc_gotland' ),
 		'id'            => 'sidebar-8',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s tacdis-ecom-widget">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h3 class="tacdis-ecom-widget__heading">',
 		'after_title'   => '</h3>',
+	) );
+	// Widget TacdisEcom Wheel Change.
+	register_sidebar( array(
+		'name'          => esc_html__( 'TacdisEcom Wheel Change Widget', 'vmc_gotland' ),
+		'id'            => 'sidebar-9',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s tacdis-ecom-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="tacdis-ecom-widget__heading">',
+		'after_title'   => '</h3>',
+	) );
+	// Widget TacdisEcom Window Repair.
+	register_sidebar( array(
+		'name'          => esc_html__( 'TacdisEcom Window Repair Widget', 'vmc_gotland' ),
+		'id'            => 'sidebar-10',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s tacdis-ecom-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="tacdis-ecom-widget__heading">',
+		'after_title'   => '</h3>',
+	) );
+	// Widget Service Menu.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Service Menu Widget', 'vmc_gotland' ),
+		'id'            => 'sidebar-11',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s service-menu-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="service-menu-widget__heading">',
+		'after_title'   => '</h3>',
+	) );
+	// Widget Service Text.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Service Text Widget', 'vmc_gotland' ),
+		'id'            => 'sidebar-12',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s service-text-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h1 class="service-text-widget__heading">',
+		'after_title'   => '</h1>',
 	) );
 }
 add_action( 'widgets_init', 'vmc_gotland_widgets_init' );
@@ -201,15 +241,11 @@ function vmc_gotland_scripts() {
 
 	// Styles
 
-	// wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Hind:400,700', false );
+	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,500,700', false );
 
 	wp_enqueue_style( 'vmc_gotland-style', get_template_directory_uri() . '/dist/css/style.css', null, '1.0', 'all' );
 
 	// Scripts
-
-	// wp_enqueue_script( 'vmc_gotland-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	// wp_enqueue_script( 'vmc_gotland-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'vmc_gotland-js', get_template_directory_uri() . '/dist/js/bundle.js', array(), '', true );
 

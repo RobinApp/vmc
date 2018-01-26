@@ -4,7 +4,7 @@
 #cookie-notice {
     background-color: rgba(255, 255, 255, 0.9) !important; 
     border-top: 1px solid $color_4;
-    box-sizing: $boxSizing;
+    box-sizing: border-box;
     font-size: 16px;
     // Cookie notice container
     .cookie-notice-container {

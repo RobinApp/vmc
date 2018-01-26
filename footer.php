@@ -59,7 +59,7 @@ require_once('includes.php');
 			</div>
 
 			<div class="site-footer__scroll">
-					<a class="scroll-top-btn button">Till toppen på sidan</a>
+					<a class="scroll-top-btn button__standard button__standard--white-border">Till toppen på sidan</a>
 			</div>
 
 		</div><!-- .site-footer__wrapper -->

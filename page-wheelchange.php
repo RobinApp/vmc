@@ -1,8 +1,8 @@
 <?php
 /**
-* Template Name: Verkstad
+* Template Name: Däckbyte
 *
-* Workshop Page
+* Wheel Change Page
 *
 * @package vmc_gotland
 **/
@@ -13,7 +13,7 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main">
-        <?php serviceBanner('service'); ?>
+        <?php tacdisEcomBanner('service', 'sidebar-9'); ?> <!-- TacdisEcom Wheel Change Widget/Function --> 
     </main><!-- #main -->
 </div><!-- #primary -->
 

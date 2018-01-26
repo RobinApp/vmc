@@ -30,7 +30,7 @@ get_header(); ?>
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                     <?php  dynamic_sidebar('sidebar-3'); ?> <!-- Address sidebar -->
                 </div>
-                <a class="button opening-hour-button">Öppettider</a>
+                <a class="button__standard button__standard--black-border opening-hour-button">Öppettider</a>
             </div> <!-- .vmc-contact-banner__contact-container -->
 
             <?php  dynamic_sidebar('sidebar-4'); ?> <!-- Map sidebar -->

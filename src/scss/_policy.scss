@@ -1,15 +1,9 @@
 .vmc-policy-posts {
-    box-sizing: $boxSizing;
     b {
         font-weight: 500;
     }
     a {
         color: $color_6 !important;
-    }
-    &__container,
-    &__wrapper,
-    &__content {
-        box-sizing: inherit;
     }
     &__container {
         padding-bottom: 30px;
@@ -40,7 +34,6 @@
     .vmc-policy-posts {
         &__content {
             max-width: 640px;
-            margin: 0 auto;
         }
     }
 }

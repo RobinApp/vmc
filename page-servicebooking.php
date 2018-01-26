@@ -1,8 +1,8 @@
 <?php
 /**
-* Template Name: Verkstad
+* Template Name: Service Bokning
 *
-* Workshop Page
+* Service Booking Page
 *
 * @package vmc_gotland
 **/
@@ -13,7 +13,7 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main">
-        <?php serviceBanner('service'); ?>
+        <?php tacdisEcomBanner('service', 'sidebar-8'); ?> <!-- TacdisEcom Service Booking Widget/Function --> 
     </main><!-- #main -->
 </div><!-- #primary -->
 

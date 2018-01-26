@@ -1,13 +1,11 @@
 .vmc-slider {
     @include flex-box(row, flex-start, nowrap);
-    box-sizing: $boxSizing;
     height: calc(100vh - 50px);
     overflow: hidden;
     width: 100%;
     &__container,
     &__img,
     &__txt {
-        box-sizing: inherit;
         h1,
         p {
             margin: 0;

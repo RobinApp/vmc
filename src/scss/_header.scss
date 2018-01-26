@@ -10,7 +10,7 @@
     top: 0;
     background-color: $white;
     border-bottom: 1px solid $color_2;
-    box-sizing: $boxSizing;
+    box-sizing: border-box;
     height: 50px;
     position: fixed;
     width: 100%;
@@ -55,7 +55,7 @@
 // Main navigation (also used for mobile)
 
 .main-navigation {
-    box-sizing: $boxSizing;
+    box-sizing: border-box;
     background-color: $white;
     height: calc(100vh - 50px);
     margin-left: -100%;
@@ -168,10 +168,11 @@
             border: none;
             padding: 0;
             a {
-                align-self: center;
-                padding: 10px 15px;
                 @include flex-box(row, center, nowrap);
+                align-self: center;
                 border: none;
+                padding: 10px 10px;
+                white-space: nowrap;
             }
             &:hover {
                 border-bottom: 5px solid $color_3;
@@ -189,5 +190,20 @@
     }
     .main-navigation-mobile {
         display: none;
+    }
+}
+
+@media screen and (min-width: 1145px) {
+    .main-navigation {
+        .menu-item {
+            a {
+                padding: 10px 15px;
+            }
+        }
+        .current-menu-item {
+            a {
+                padding-bottom: 5px;
+            }
+        }
     }
 }

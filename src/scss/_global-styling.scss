@@ -18,16 +18,6 @@ a {
     text-decoration: none !important;
 }
 
-.button {
-    border: 1px solid $white;
-    box-sizing: $boxSizing;
-    cursor: pointer;
-    margin-bottom: 0;
-    margin-top: 0;
-    max-width: 250px;
-    padding: 10px 20px;
-}
-
 .content-area,
 .site-main {
     width: 100%;
@@ -35,21 +25,29 @@ a {
     padding: 0;
 }
 
+.vmc-standard-post,
+.vmc-slider,
+.vmc-policy-posts,
+.vmc-promotion-posts,
+.vmc-contact-banner {
+    box-sizing: border-box;
+    &__container,
+    &__wrapper,
+    &__content,
+    &__img,
+    &__txt {
+        box-sizing: inherit;
+    }
+}
+
 .vmc-standard-post {
-    box-sizing: $boxSizing;
     b {
         font-weight: 500;
     }
     a {
         color: $color_6 !important;
     }
-    &__container,
-    &__wrapper,
     &__content {
-        box-sizing: inherit;
-    }
-    &__content {
-        margin-top: -10px;
         padding: 10px 0;
         width: 100%;
         &:first-child {
@@ -64,14 +62,11 @@ a {
         }
     }
     &__img {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        @extend .bg-img;
         height: 250px;
         width: 100%;
     }
     &__txt {
-        box-sizing: inherit;
         color: $color_4;
         min-height: 100px;
         padding: 10px;
@@ -118,7 +113,6 @@ a {
 
 @media screen and (min-width: 1024px) {
     .vmc-standard-post {
-        box-sizing: $boxSizing;
         &__content {
             height: 400px;
             max-width: 1300px;
@@ -143,19 +137,10 @@ a {
             width: 49%;
         }
         &__txt {
-            box-sizing: inherit;
             color: $color_4;
             display: block;
             top: 0;
             width: 51%;
-        }
-    }
-}
-
-@media screen and (min-width: 1025px) {
-    .button {
-        &:hover {
-            background-color: rgba(255, 255, 255, 0.5);
         }
     }
 }

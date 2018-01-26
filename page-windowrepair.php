@@ -1,8 +1,8 @@
 <?php
 /**
-* Template Name: Verkstad
+* Template Name: Glas Reparation
 *
-* Workshop Page
+* Window Repair Page
 *
 * @package vmc_gotland
 **/
@@ -13,7 +13,7 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main">
-        <?php serviceBanner('service'); ?>
+        <?php tacdisEcomBanner('service', 'sidebar-10'); ?> <!-- TacdisEcom Window Repair Widget/Function -->
     </main><!-- #main -->
 </div><!-- #primary -->
 
