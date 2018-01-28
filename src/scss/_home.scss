@@ -1,6 +1,7 @@
 .vmc-slider {
     @include flex-box(row, flex-start, nowrap);
     height: calc(100vh - 50px);
+    margin-bottom: 30px;
     overflow: hidden;
     width: 100%;
     &__container,
@@ -8,9 +9,12 @@
     &__txt {
         h1,
         p {
-            margin: 0;
+            margin: 0 auto;
             text-align: center;
             padding: 10px;
+        }
+        .button__standard--white-border {
+            color: $white;
         }
     }
     &__container,
@@ -25,7 +29,6 @@
         z-index: 0;
     }
     &__img {
-        @extend .bg-img;
         height: 50%;
         width: 100%;
     }
@@ -33,6 +36,11 @@
         height: 50%;
         width: 100%;
         padding-top: 30px;
+    }
+    &__link-container {
+        box-sizing: border-box;
+        margin-top: 30px;
+        text-align: center;
     }
     &__button {
         opacity: 0;
@@ -47,16 +55,16 @@
 
 @media screen and (min-width: 640px) {
     .vmc-slider {
+        margin-bottom: unset;
         &__img {
             height: 100%;
         }
         &__txt {
-            margin-top: -25%;
+            margin-top: -40%;
             h1,
             p {
-                text-align: left;
                 padding: 5px 10px;
-                width: 40%;
+                width: 80%;
             }
         }
     }
@@ -71,9 +79,7 @@
             margin-top: 0;
             h1,
             p {
-                text-align: center;
                 padding: 10px;
-                width: 100%;
             }
         }
     }
@@ -85,13 +91,46 @@
             height: 100%;
         }
         &__txt {
-            margin-top: -25%;
+            margin-top: -35%;
+            margin-left: 0;
             h1,
             p {
+                margin-left: 0;
+                padding: 10px 30px;
                 text-align: left;
-                padding: 5px 30px;
-                width: 40%;
+                width: 50%;
             }
+        }
+        &__link-container {
+            margin-left: 0;
+            padding: 0 30px;
+            text-align: left;
+            width: 50%;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px ) and (orientation: portrait) {
+    .vmc-slider {
+        &__img {
+            height: 50%;
+        }
+        &__txt {
+            h1,
+            p {
+                margin: 0 auto;
+                padding: 10px 30px;
+                text-align: center;
+                width: 70%;
+            }
+        }
+        &__link-container {
+            text-align: center;
+        }
+        &__txt,
+        &__link-container {
+            margin: 0 auto;
+            margin-top: 30px;
         }
     }
 }
@@ -100,7 +139,14 @@
     .vmc-slider {
         height: calc(100vh - 80px);
         &__txt {
-            margin-top: -20%;
+            margin-top: -25%;
+            h1,
+            p {
+                padding: 10px 60px;
+            }
+        }
+        &__link-container {
+            padding: 0 60px;
         }
         &__button {
             opacity: 0.5;

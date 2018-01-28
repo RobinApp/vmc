@@ -6,6 +6,7 @@
 "_global-styling",
 "_header",
 "_footer",
+"_single",
 "_error",
 "_home",
 "_contact",
@@ -35,11 +36,3 @@ body {
         font-weight: 500;
     }
 }
-
-.wpcf7-text,
-.wpcf7-textarea,
-.wpcf7-submit {
-    font-family: $font;
-    font-size: 16px;
-}
-

@@ -1,17 +1,14 @@
 .vmc-promotion-posts {
-    b {
-        font-weight: 500;
-    }
     &__content {
+        min-height: $heightMobile;
         padding: 10px 0;
         width: 100%;
         &:first-child {
             margin-top: 0;
-            padding-top: 30px;
+            padding-top: 0;
         }
     }
     &__img {
-        @extend .bg-img;
         height: 250px;
         width: 100%;
     }
@@ -28,6 +25,22 @@
         a {
             margin-top: 10px;
         }
+        .promotion-validity {
+            font-style: italic;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+        .button__standard {
+            color: $color_4;
+        }
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .vmc-promotion-posts {
+        &__img {
+            height: 280px;
+        }
     }
 }
 
@@ -37,6 +50,9 @@
             @include flex-box(row, flex-start, wrap);
             padding: 10px;
             padding-top: 30px;
+            &:first-child {
+                padding-top: 30px;
+            }
             &:nth-child(even) {
                 flex-flow: row-reverse;
             }
@@ -59,6 +75,7 @@
 @media screen and (min-width: 768px) {
     .vmc-promotion-posts {
         &__content {
+            min-height: unset;
             padding: 10px;
             height: 350px;
             margin: 30px auto 0 auto;
@@ -77,10 +94,6 @@
             padding: 30px;
             &:nth-child(even) {
                 flex-flow: row-reverse;
-                h2,
-                p {
-                    margin: 0;
-                }
             }
             h2,
             p {

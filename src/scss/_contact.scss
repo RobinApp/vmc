@@ -17,6 +17,9 @@
     &__map-container {
         height: calc(100vh - 50px);
         width: 100%;
+        a {
+            color: $color_4;
+        }
     }
     &__contact-container {
         @include flex-box(column, center, nowrap);
@@ -110,8 +113,8 @@
         }
         .wpcf7-submit {
             @extend .button__standard;
-            @extend .button__standard--white-border;
-            background-color: $color_3;
+            @extend .button__standard--black-border;
+            background-color: transparent;
             display: block;
             margin: 0 auto;
             width: 100%;
@@ -263,7 +266,9 @@
                 height: 90px;
             }
             .wpcf7-submit {
-                border: 1px solid $white;
+                // @extend .button__standard--white-border;
+                border-color: $white;
+                color: $white;
                 max-width: 120px;
                 padding: 10px 20px;
             }
@@ -300,7 +305,6 @@
             }
         }
     }
-
 }
 
 @media screen and (min-width: 1025px) and (orientation: landscape) {

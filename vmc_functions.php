@@ -1,33 +1,53 @@
 <?php 
 
-$val; // Parameters needed by functions, could be a tag, category etc (should be a string).
-$val2; // If extra parameter is needed (should be a string).
+$val; // Parameters needed by functions, could be a tag, category etc.
+$val2; // If extra parameter is needed.
 $standardSlider = 'vmc_gotland_slider'; // CPT Slider
 $standardPosts = 'post'; // Standard Posts
 $employeePosts = 'vmc_gotland_employee'; // CPT Employee
 $policyPosts = 'vmc_gotland_policy'; // CPT Policy
 $promotionPosts = 'vmc_gotland_promo'; // CPT Promotion
 
+
+// To get custom fields.
+function customFields($val) {
+    if ( get_field($val) ) {
+        the_field($val);
+    }
+}
+
 // ****************************************************************************************************
 // ***************************************** Standard Slider ******************************************
 // ****************************************************************************************************
 
+// The function must be called for within a container element with the class name "vmc-slider"
+
 function standardSlider($val) {
 
     global $standardSlider;
+    global $promotionPosts;
     
     // Query to only get posts from CPT vmc_gotland_slider with a specific tag
-    // $query = new WP_Query( array( 'post_type' => $standardSlider, 'slide-tag' => $val ) );
     $query = new WP_Query( array(
+        'post_type' => 
+            array(
+                $standardSlider,
+                $promotionPosts,
+            ),
         'tax_query' => array(
+            'relation' => 'OR',
             array(
                 'taxonomy'  => 'vmc_gotland_cat_slider',
                 'field'     => 'slug',
                 'terms'     =>  $val,
             ),
+            array(
+                'taxonomy'  => 'vmc_gotland_cat_promo',
+                'field'     => 'slug',
+                'terms'     =>  $val,
+            ),
         ),
-        'post_type' => $standardSlider,
-        'order'     =>'ASC',
+        'order'     =>'DESC',
     ));
 
     ?>
@@ -50,7 +70,17 @@ function standardSlider($val) {
                         <div class="vmc-slider__img" <?php echo $background; ?>></div>
                         <div class="vmc-slider__txt">
                             <h1><?php the_title(); ?></h1>
-                            <p><?php the_content(); ?></p>
+                            <p><?php the_excerpt(); ?></p>
+                            <?php if( get_field('link_title') ): ?>
+                                <div class="vmc-slider__link-container">
+                                    <a href="<?php the_permalink() ?>" class="button__standard button__standard--white-border"><?php the_field('link_title'); ?></a>
+                                </div>
+                            <?php endif; ?>
+                            <?php if( get_field('link_title_custom') ): ?>
+                                <div class="vmc-slider__link-container">
+                                    <a href="<?php the_field('link_custom'); ?>" class="button__standard button__standard--white-border"><?php the_field('link_title_custom'); ?></a>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </article><!-- .vmc-slider__content -->
                     <?php         
@@ -69,14 +99,14 @@ function standardSlider($val) {
 // ****************************************** Standard Posts ******************************************
 // ****************************************************************************************************
 
-function standardPost($val) {
+// The function must be called for within a container element with the class name "vmc-standard-post"
 
-    // The function must be called for within a container element with the class name "vmc-standard-post"
+function standardPost($val) {
     
     global $standardPosts;
     
-    // Query to only get standard posts with a specific tag
-    $query = new WP_Query( array( 'post_type' => $standardPosts, 'tag' => $val ) );
+    // Query to only get standard posts with a specific category
+    $query = new WP_Query( array( 'post_type' => $standardPosts, 'category_name' => $val ) );
 
     ?>
     <div class="vmc-standard-post__container">
@@ -115,10 +145,9 @@ function standardPost($val) {
 // ****************************************************************************************************
 
 // Used on the info page for cookies, terms, privacy policies and social media.
+// The function must be called for within a container element with the class name "vmc-policy-posts"
 
 function policyPosts($val) {
-    
-    // The function must be called for within a container element with the class name "vmc-policy-posts"
     
     global $policyPosts;
     
@@ -132,7 +161,7 @@ function policyPosts($val) {
                 ),
             ),
             'post_type' => $policyPosts,
-            'order'     =>'ASC',
+            'order'     =>'DESC',
         ));
         ?>
     <div class="vmc-policy-posts__container">
@@ -169,16 +198,9 @@ function policyPosts($val) {
 // ****************************************** Employee Posts ******************************************
 // ****************************************************************************************************
 
-// To get custom fields in the employeePosts function.
-function customFields($val) {
-    if ( get_field($val) ) {
-        the_field($val);
-    }
-}
+// The function must be called for within a container element with the class name "vmc-contact"
 
 function employeePosts($val, $val2) {
-
-    // The function must be called for within a container element with the class name "vmc-contact"
 
     global $employeePosts;
 
@@ -192,7 +214,7 @@ function employeePosts($val, $val2) {
             ),
         ),
         'post_type' => $employeePosts,
-        'order'     =>'ASC',
+        'order'     =>'DESC',
     ));
     ?>
     <div class="vmc-contact__wrapper">
@@ -233,22 +255,23 @@ function employeePosts($val, $val2) {
 // ****************************************** Contact Banner ******************************************
 // ****************************************************************************************************
 
+// The function must be called for within a container element with the class name "vmc-contact-banner"
+
 function contactBanner($val) {
     
     global $standardSlider;
     
-    // Query to only get posts from CPT vmc_gotland_slider with a specific tag
-    // $query = new WP_Query( array( 'post_type' => $standardSlider, 'slide-tag' => $val ) );
+    // Query to only get posts from CPT vmc_gotland_slider with a specific category
     $query = new WP_Query( array(
         'tax_query' => array(
             array(
-                'taxonomy'  => 'vmc_gotland_tag_slider',
+                'taxonomy'  => 'vmc_gotland_cat_slider',
                 'field'     => 'slug',
                 'terms'     =>  $val,
             ),
         ),
         'post_type' => $standardSlider,
-        'order'     =>'ASC',
+        'order'     =>'DESC',
     ));
 
     ?>
@@ -283,15 +306,13 @@ function contactBanner($val) {
 // ***************************************** Poromtion Posts ******************************************
 // ****************************************************************************************************
 
-// Used on the info page for cookies, terms, privacy policies and social media.
+// The function must be called for within a container element with the class name "vmc-promotion-posts"
 
 function promotionPosts($val) {
     
-    // The function must be called for within a container element with the class name "vmc-promotion-posts"
-    
     global $promotionPosts;
     
-        // Query to only get employee posts with a specific category
+        // Query to only get promotion posts with a specific category
         $query = new WP_Query( array(
             'tax_query' => array(
                 array(
@@ -301,7 +322,7 @@ function promotionPosts($val) {
                 ),
             ),
             'post_type' => $promotionPosts,
-            'order'     =>'ASC',
+            'order'     =>'DESC',
         ));
         ?>
     <div class="vmc-promotion-posts__container">
@@ -324,7 +345,8 @@ function promotionPosts($val) {
                     <div class="vmc-promotion-posts__txt">
                         <h2><?php the_title(); ?></h2>
                         <p><?php the_excerpt(); ?></p>
-                        <a href="<?php the_permalink() ?>" class="button__standard button__standard--black-border" title="Länk till <?php the_title_attribute(); ?>">Läs mer</a>
+                        <a href="<?php the_permalink() ?>" class="button__standard button__standard--black-border" title="Länk till <?php the_title_attribute(); ?>"><?php customFields('link_title_promotion'); ?></a>
+                        <p class="promotion-validity"><?php customFields('promotion_start_end'); ?></p>
                     </div>
                 </article><!-- .vmc-promotion-posts__content -->
                 <?php         
@@ -341,12 +363,13 @@ function promotionPosts($val) {
 // ***************************************** Service Banner *******************************************
 // ****************************************************************************************************
 
+// The function must be called for within a container element with the class name "vmc-service-banner"
+
 function serviceBanner($val) {
     
     global $standardSlider;
     
-    // Query to only get posts from CPT vmc_gotland_slider with a specific tag
-    // $query = new WP_Query( array( 'post_type' => $standardSlider, 'slide-tag' => $val ) );
+    // Query to only get posts from CPT vmc_gotland_slider with a specific category
     $query = new WP_Query( array(
         'tax_query' => array(
             array(
@@ -356,7 +379,7 @@ function serviceBanner($val) {
             ),
         ),
         'post_type' => $standardSlider,
-        'order'     =>'ASC',
+        'order'     =>'DESC',
     ));
 
     ?>
@@ -397,12 +420,13 @@ function serviceBanner($val) {
 // *************************************** Tacdis Ecom Banner *****************************************
 // ****************************************************************************************************
 
+// The function must be called for within a container element with the class name "vmc-service-banner"
+
 function tacdisEcomBanner($val, $val2) {
     
     global $standardSlider;
     
-    // Query to only get posts from CPT vmc_gotland_slider with a specific tag
-    // $query = new WP_Query( array( 'post_type' => $standardSlider, 'slide-tag' => $val ) );
+    // Query to only get posts from CPT vmc_gotland_slider with a specific category
     $query = new WP_Query( array(
         'tax_query' => array(
             array(
@@ -412,7 +436,7 @@ function tacdisEcomBanner($val, $val2) {
             ),
         ),
         'post_type' => $standardSlider,
-        'order'     =>'ASC',
+        'order'     =>'DESC',
     ));
 
     ?>
@@ -438,12 +462,12 @@ function tacdisEcomBanner($val, $val2) {
                             </div>
                         </div>
                         
-                    </article><!-- .vmc-contact-banner__content -->
+                    </article><!-- .vmc-service-banner__content -->
                     <?php         
                 }
             }
             ?>
-        </section><!-- .vmc-contact-banner__wrapper -->
-    </div><!-- .vmc-contact-banner__container -->
+        </section><!-- .vmc-service-banner__wrapper -->
+    </div><!-- .vmc-service-banner__container -->
     <?php 
 }

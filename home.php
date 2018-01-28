@@ -21,7 +21,7 @@ get_header(); ?>
 		<main id="main" class="site-main">
 			<div class="vmc-standard-post">
 
-				<?php standardPost('startsida'); ?>
+				<?php standardPost('home-page'); ?>
 			</div><!-- .vmc-standard-post -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
