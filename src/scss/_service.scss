@@ -79,7 +79,7 @@
     .service-page-wrapper {
         height: 500px;
         margin: 0 auto;
-        min-height: unset;
+        min-height: 0;
         position: relative;
         top: calc(50vh - 25px - 250px);
         width: 500px;
