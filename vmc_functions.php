@@ -48,6 +48,7 @@ function standardSlider($val) {
             ),
         ),
         'order'     =>'DESC',
+        'posts_per_page' => -1,
     ));
 
     ?>
@@ -106,7 +107,7 @@ function standardPost($val) {
     global $standardPosts;
     
     // Query to only get standard posts with a specific category
-    $query = new WP_Query( array( 'post_type' => $standardPosts, 'category_name' => $val ) );
+    $query = new WP_Query( array( 'post_type' => $standardPosts, 'category_name' => $val, 'posts_per_page' => -1 ) );
 
     ?>
     <div class="vmc-standard-post__container">
@@ -162,6 +163,7 @@ function policyPosts($val) {
             ),
             'post_type' => $policyPosts,
             'order'     =>'DESC',
+            'posts_per_page' => -1,
         ));
         ?>
     <div class="vmc-policy-posts__container">
@@ -215,6 +217,7 @@ function employeePosts($val, $val2) {
         ),
         'post_type' => $employeePosts,
         'order'     =>'DESC',
+        'posts_per_page' => -1,
     ));
     ?>
     <div class="vmc-contact__wrapper">
@@ -272,6 +275,7 @@ function contactBanner($val) {
         ),
         'post_type' => $standardSlider,
         'order'     =>'DESC',
+        'posts_per_page' => -1,
     ));
 
     ?>
@@ -323,6 +327,7 @@ function promotionPosts($val) {
             ),
             'post_type' => $promotionPosts,
             'order'     =>'DESC',
+            'posts_per_page' => -1,
         ));
         ?>
     <div class="vmc-promotion-posts__container">
@@ -380,6 +385,7 @@ function serviceBanner($val) {
         ),
         'post_type' => $standardSlider,
         'order'     =>'DESC',
+        'posts_per_page' => -1,
     ));
 
     ?>
@@ -437,6 +443,7 @@ function tacdisEcomBanner($val, $val2) {
         ),
         'post_type' => $standardSlider,
         'order'     =>'DESC',
+        'posts_per_page' => -1,
     ));
 
     ?>

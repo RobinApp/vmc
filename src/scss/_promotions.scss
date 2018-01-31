@@ -75,7 +75,7 @@
 @media screen and (min-width: 768px) {
     .vmc-promotion-posts {
         &__content {
-            min-height: unset;
+            min-height: 0;
             padding: 10px;
             height: 350px;
             margin: 30px auto 0 auto;

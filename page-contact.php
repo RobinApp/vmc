@@ -61,7 +61,7 @@ get_header(); ?>
 
             <?php employeePosts('rekond', 'Rekond') ?>
 
-            <?php employeePosts('ekonomi-administartion', 'Ekonomi &amp; Administartion') ?>
+            <?php employeePosts('ekonomi-administration', 'Ekonomi &amp; Administration') ?>
 
             <?php employeePosts('verkstadsadministration', 'Verkstadsadministration') ?>
 
