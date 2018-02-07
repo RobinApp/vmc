@@ -14,27 +14,35 @@
         padding: 15px;
         box-sizing: border-box;
     }
+    // Message box
+    div.wpcf7-validation-errors,
+    .wpcf7-spam-blocked,
+    .wpcf7-mail-sent-ng,
+    .wpcf7-mail-sent-ok {
+        background: none;
+        border: 0;
+        text-align: center;
+        margin: 5px auto;
+        padding: 0;
+    }
     // Error message box
     div.wpcf7-validation-errors,
     .wpcf7-spam-blocked,
     .wpcf7-mail-sent-ng {
-        background: #ffe2e2;
-        border: 1px solid $errorColor;
         color: $errorColor;
     }
     // Success message box
    .wpcf7-mail-sent-ok {
-        background: #dff0d8;
-        border: 1px solid $successColor;
         color: $successColor;
    }
    // Missing field input text
     .wpcf7-not-valid-tip {
-        color: $errorColor;
+        display: none;
     }
     // Missing field input border
     span .wpcf7-not-valid {
-        border: 1px solid $errorColor !important;
+        border: 0 !important;
+        background-color: #ffe2e2;
     }
 }
 @media screen and (min-width: 640px) {

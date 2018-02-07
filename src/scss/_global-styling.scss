@@ -20,9 +20,11 @@ a {
 
 .content-area,
 .site-main {
-    width: 100%;
+    box-sizing: border-box;
     margin: 0;
+    min-height: $heightMobile;
     padding: 0;
+    width: 100%;
 }
 
 .vmc-standard-post,
@@ -165,6 +167,14 @@ a {
             top: 0;
             width: 51%;
         }
+    }
+}
+
+
+@media screen and (min-width: 1025px) {
+    .content-area,
+    .site-main {
+        min-height: $heightDesktop;
     }
 }
 
