@@ -1,3 +1,5 @@
+// Styling for the service page and service booking pages
+
 .vmc-service-banner {
     width: 100%;
     &__container,
@@ -19,17 +21,24 @@
     }
 }
 
+// The .service-page-wrapper and .tacdis-ecom-wrapper is the same element,
+// but the .tacdis-ecom-wrapper class is only added on the actual booking
+// page to allow for a nother styling.
 .service-page-wrapper {
     box-sizing: border-box;
     width: 100%;
-    min-height: calc(100vh - 50px);
+    min-height: $heightMobile;
     background-color: rgba(0, 48, 87, 0.7);
 }
-
 .tacdis-ecom-wrapper {
     background-color: #fff;
-    overflow-x: auto;
-    padding: 20px 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px 5px;
+    .tacdis-ecom-booking-container {
+        height: 100%;
+        margin: 0 auto;
+        width: 100%;
+    }
 }
 
 .service-menu-widget,
@@ -75,7 +84,7 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakPoint_3) {
     .service-page-wrapper {
         height: 500px;
         margin: 0 auto;
@@ -84,16 +93,47 @@
         top: calc(50vh - 25px - 250px);
         width: 500px;
     }
+    .tacdis-ecom-wrapper {
+        min-height: $heightMobile;
+        padding: 30px 10px;
+        top: 0;
+        width: 100%;
+    }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: $breakPoint_5) {
     .service-page-wrapper {
         width: 640px;
         top: calc(50vh - 40px - 250px);
     }
+    .tacdis-ecom-wrapper {
+        min-height: $heightDesktop;
+        padding: 30px 25px;
+        top: 0;
+        width: 100%;
+        .tacdis-ecom-booking-container {
+            max-width: 1300px;
+        }
+    }
     .vmc-service-banner {
         &__img {
             min-height: calc(100vh - 80px);
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_6) {
+    .tacdis-ecom-wrapper {
+        .tacdis-ecom-booking-container {
+            max-width: 1350px;
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_8) {
+    .tacdis-ecom-wrapper {
+        .tacdis-ecom-booking-container {
+            max-width: 1550px;
         }
     }
 }

@@ -465,7 +465,9 @@ function tacdisEcomBanner($val, $val2) {
                     <article class="vmc-service-banner__content">
                         <div class="vmc-service-banner__img" <?php echo $background; ?> >
                             <div class="service-page-wrapper tacdis-ecom-wrapper">
-                                <?php  dynamic_sidebar($val2); ?> <!-- Widget --> 
+                                <div class="tacdis-ecom-booking-container">
+                                    <?php  dynamic_sidebar($val2); ?> <!-- Widget --> 
+                                </div>
                             </div>
                         </div>
                         

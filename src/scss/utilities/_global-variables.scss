@@ -1,8 +1,10 @@
-$color_1: #fff;
-$color_2: #EEEEEE;
+// Color variables
+
+$color_1: #fff; // White
+$color_2: #EEEEEE; // Light gray
 $color_3: #003057; // Volvo blue
 $color_4: #161618; // Volvo black
-$color_5: #333333;
+$color_5: #333333; // Dark gray
 $color_6: #007bcd; // Link color
 
 $white: #fff;
@@ -11,15 +13,38 @@ $black: #000;
 $successColor: #3c763d;
 $errorColor: #ff5d5d;
 
+// Shadow variables
+
 $boxShadow: 0px 0px 3px $black;
 $textShadow: 0px 0px 3px $color_4;
+
+// Height variables.
+// Used for setting height on banners and sliders, on main it is used for min-height.
+// 50px and 80px is the height of the menu.
 
 $heightMobile: calc(100vh - 50px);
 $heightDesktop: calc(100vh - 80px);
 
+// Spacer
+
 $spacer: 12px;
 
+// Fonts
+
 $font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+
+// Breakpoints
+
+$breakPoint_1: 400px;
+$breakPoint_2: 640px;
+$breakPoint_3: 768px;
+$breakPoint_4: 1024px;
+$breakPoint_5: 1025px;
+$breakPoint_6: 1536px;
+$breakPoint_7: 1540px;
+$breakPoint_8: 1920px;
+
+// Classes used together with @extend
 
 .link {
     text-decoration: none;

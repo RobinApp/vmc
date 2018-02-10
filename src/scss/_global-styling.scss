@@ -1,22 +1,26 @@
+// Global styling
+
+// Scrollbar styling
 ::-webkit-scrollbar {
     width: 10px;
 }
  
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    // border-left: 1px solid $color_2;
 }
  
 ::-webkit-scrollbar-thumb {
   background-color: lightgray;
-//   border-radius: 4px;
-//   outline: 1px solid $color_2;
 }
+
+// Link styling
 
 a {
     color: inherit;
     text-decoration: none;
 }
+
+// Content styling
 
 .content-area,
 .site-main {
@@ -59,6 +63,8 @@ a {
     }
 }
 
+// Standard posts
+
 .vmc-standard-post {
     &__content {
         min-height: $heightMobile;
@@ -86,7 +92,66 @@ a {
     }
 }
 
-@media screen and (min-width: 400px) {
+// Standard slider
+
+.vmc-slider {
+    @include flex-box(row, flex-start, nowrap);
+    height: calc(100vh - 50px);
+    margin-bottom: 30px;
+    overflow: hidden;
+    width: 100%;
+    &__container,
+    &__img,
+    &__txt {
+        h1,
+        p {
+            margin: 0 auto;
+            text-align: center;
+            padding: 10px;
+        }
+        .button__standard--white-border {
+            color: $white;
+        }
+    }
+    &__container,
+    &__content {
+        background-color: $color_4;
+        color: $white;
+        height: 100%;
+        width: 100%;
+    }
+    &__container,
+    &__wrapper {
+        z-index: 0;
+    }
+    &__img {
+        height: 50%;
+        width: 100%;
+    }
+    &__txt {
+        height: 50%;
+        width: 100%;
+        padding-top: 30px;
+    }
+    &__link-container {
+        box-sizing: border-box;
+        margin-top: 30px;
+        text-align: center;
+    }
+    &__button {
+        opacity: 0;
+    }
+    &__pagination {
+        .swiper-pagination-bullet {
+            background-color: $white;
+            // box-shadow: $boxShadow;
+        }
+    }
+}
+
+// Media queries
+
+@media screen and (min-width: $breakPoint_1) {
     .vmc-standard-post {
         &__img {
             height: 280px;
@@ -94,7 +159,7 @@ a {
     }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: $breakPoint_2) {
     .vmc-standard-post {
         &__content {
             @include flex-box(row, flex-start, wrap);
@@ -120,9 +185,23 @@ a {
             }
         }
     }
+    .vmc-slider {
+        margin-bottom: unset;
+        &__img {
+            height: 100%;
+        }
+        &__txt {
+            margin-top: -40%;
+            h1,
+            p {
+                padding: 5px 10px;
+                width: 80%;
+            }
+        }
+    }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakPoint_3) {
     .vmc-standard-post {
         &__content {
             min-height: 0;
@@ -134,9 +213,21 @@ a {
             height: 100%;
         }
     }
+    .vmc-slider {
+        &__img {
+            height: 60%;
+        }
+        &__txt {
+            margin-top: 0;
+            h1,
+            p {
+                padding: 10px;
+            }
+        }
+    }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $breakPoint_4) {
     .vmc-standard-post {
         &__content {
             height: 400px;
@@ -168,17 +259,83 @@ a {
             width: 51%;
         }
     }
+    .vmc-slider {
+        &__img {
+            height: 100%;
+        }
+        &__txt {
+            margin-top: -35%;
+            margin-left: 0;
+            h1,
+            p {
+                margin-left: 0;
+                padding: 10px 30px;
+                text-align: left;
+                width: 50%;
+            }
+        }
+        &__link-container {
+            margin-left: 0;
+            padding: 0 30px;
+            text-align: left;
+            width: 50%;
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_4 ) and (orientation: portrait) {
+    .vmc-slider {
+        &__img {
+            height: 50%;
+        }
+        &__txt {
+            h1,
+            p {
+                margin: 0 auto;
+                padding: 10px 30px;
+                text-align: center;
+                width: 70%;
+            }
+        }
+        &__link-container {
+            text-align: center;
+        }
+        &__txt,
+        &__link-container {
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+    }
 }
 
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: $breakPoint_5) {
     .content-area,
     .site-main {
         min-height: $heightDesktop;
     }
+    .vmc-slider {
+        height: calc(100vh - 80px);
+        &__txt {
+            margin-top: -25%;
+            h1,
+            p {
+                padding: 10px 60px;
+            }
+        }
+        &__link-container {
+            padding: 0 60px;
+        }
+        &__button {
+            opacity: 0.5;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
 }
 
-@media screen and (min-width: 1540px) {
+@media screen and (min-width: $breakPoint_7) {
     .vmc-standard-post {
         &__content {
             height: 450px;
@@ -187,7 +344,7 @@ a {
     }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: $breakPoint_8) {
     .vmc-standard-post {
         &__content {
             height: 500px;

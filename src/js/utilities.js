@@ -1,7 +1,9 @@
-// Check if element has class
+// Check if element has class.
 export function hasClass(el, cls) {
     return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
 };
+
+// ************************************************************
 
 // Smooth Scroll by Andrew Johnson
 
@@ -55,6 +57,10 @@ export function smoothScroll(eID) {
         leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
     }
 }
+
+// ************************************************************
+
+// Swiper by Vladimir Kharlampidi from iDangero.us
 
 let mySwiper = new Swiper ('.swiper-container', {
     // Optional parameters

@@ -77,10 +77,12 @@ exports.hasClass = hasClass;
 exports.currentYPosition = currentYPosition;
 exports.elmYPosition = elmYPosition;
 exports.smoothScroll = smoothScroll;
-// Check if element has class
+// Check if element has class.
 function hasClass(el, cls) {
     return (' ' + el.className + ' ').indexOf(' ' + cls + ' ') > -1;
 };
+
+// ************************************************************
 
 // Smooth Scroll by Andrew Johnson
 
@@ -133,6 +135,10 @@ function smoothScroll(eID) {
         leapY -= step;if (leapY < stopY) leapY = stopY;timer++;
     }
 }
+
+// ************************************************************
+
+// Swiper by Vladimir Kharlampidi from iDangero.us
 
 var mySwiper = new Swiper('.swiper-container', {
     // Optional parameters
@@ -228,7 +234,7 @@ var MainNavigation = exports.MainNavigation = function () {
         this.manufacturer;
         this.currentMenuItem();
     }
-    // Toggle menu in mobile/tablet view
+    // Toggle menu in mobile/tablet view.
 
 
     _createClass(MainNavigation, [{
@@ -239,7 +245,7 @@ var MainNavigation = exports.MainNavigation = function () {
             this.menuState === false ? this.menuState = true : this.menuState = false;
             return true;
         }
-        // Check if element has class "current-menu-item"
+        // Loop through all menu link elements and check for the class "current-menu-item".
 
     }, {
         key: 'currentMenuItem',
@@ -252,7 +258,7 @@ var MainNavigation = exports.MainNavigation = function () {
                 current === true ? _this2.manufacturerMenuStyling() : '';
             });
         }
-        // If current page is a manufacturer page, apply their color to menu item
+        // If current page is a manufacturer page, apply their color to the current menu item.
 
     }, {
         key: 'manufacturerMenuStyling',
@@ -350,7 +356,7 @@ var Contact = exports.Contact = function () {
         this.scrollBtn = document.querySelector('.opening-hour-button');
         this.ifButtonExist();
     }
-    // Check if opening hour button exists, if so add event listener
+    // Check if opening hour button exists, if so add event listener.
 
 
     _createClass(Contact, [{
@@ -362,7 +368,7 @@ var Contact = exports.Contact = function () {
                 return _this.scrollToOpeningHour(e);
             }) : '';
         }
-        // Scroll to opening hours
+        // Scroll to opening hours.
 
     }, {
         key: 'scrollToOpeningHour',

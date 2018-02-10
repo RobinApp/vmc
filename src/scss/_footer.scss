@@ -1,3 +1,5 @@
+// Styling for the site footer
+
 .site-footer {
     background-color: $color_4;
     color: $white;
@@ -44,7 +46,7 @@
     }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: $breakPoint_2) {
     .site-footer {
         &__navigation,
         &__info-widget {
@@ -62,7 +64,7 @@
     }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: $breakPoint_5) {
     .site-footer {
         &__navigation,
         &__info-widget,

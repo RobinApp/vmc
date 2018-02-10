@@ -1,3 +1,5 @@
+//Styling for the promotion page
+
 .vmc-promotion-posts {
     &__content {
         min-height: $heightMobile;
@@ -36,7 +38,7 @@
     }
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: $breakPoint_1) {
     .vmc-promotion-posts {
         &__img {
             height: 280px;
@@ -44,7 +46,7 @@
     }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: $breakPoint_2) {
     .vmc-promotion-posts {
         &__content {
             @include flex-box(row, flex-start, wrap);
@@ -72,7 +74,7 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakPoint_3) {
     .vmc-promotion-posts {
         &__content {
             min-height: 0;
@@ -86,7 +88,7 @@
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $breakPoint_4) {
     .vmc-promotion-posts {
         &__content {
             height: 400px;
@@ -115,7 +117,7 @@
     }
 }
 
-@media screen and (min-width: 1540px) {
+@media screen and (min-width: $breakPoint_7) {
     .vmc-promotion-posts {
         &__content {
             height: 450px;
@@ -124,7 +126,7 @@
     }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: $breakPoint_8) {
     .vmc-promotion-posts {
         &__content {
             height: 500px;

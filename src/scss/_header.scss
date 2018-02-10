@@ -1,4 +1,4 @@
-// Mobile navigation / top menu bar
+// Styling for the mobile navigation and top menu bar in desktop
 
 .navigation-spacer {
     width: 100%;
@@ -25,7 +25,6 @@
         }
     }
     &__nav {
-        // color: $color_3;
         cursor: pointer;
         width: 60px;
         a {
@@ -105,14 +104,14 @@
     padding: 0;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakPoint_3) {
     .main-navigation {
         width: 200px;
         border-right: 1px solid $color_2;
     }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: $breakPoint_5) {
     .navigation-spacer {
         height: 80px;
     }

@@ -44,8 +44,10 @@
   
     // Return the CSS calc equation
     @return calc(#{$m*100}vw + #{$b}px);
-  
+
 }
+
+// Responsive font size
 
 h1 {
     $map: (320: 20, 768: 24, 1024: 28);

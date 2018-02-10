@@ -1,3 +1,5 @@
+// Styling for single post view
+
 .vmc-single-post {
     min-height: $heightMobile;
     &__content {
@@ -29,7 +31,7 @@
     }
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: $breakPoint_1) {
     .vmc-single-post {
         &__img {
             height: 280px;
@@ -37,7 +39,7 @@
     }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: $breakPoint_2) {
     .vmc-single-post {
         &__content {
             padding: 20px;
@@ -52,7 +54,7 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakPoint_3) {
     .vmc-single-post {
         &__content {
             padding: 0;
@@ -66,7 +68,7 @@
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $breakPoint_4) {
     .vmc-single-post {
         min-height: $heightDesktop;
         &__content {
@@ -81,7 +83,7 @@
     }
 }
 
-@media screen and (min-width: 1024px ) and (orientation: portrait) {
+@media screen and (min-width: $breakPoint_4 ) and (orientation: portrait) {
     .vmc-single-post {
         &__img {
             height: 600px;
@@ -89,7 +91,7 @@
     }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: $breakPoint_5) {
     .vmc-single-post {
         padding-top: 30px;
         margin: 0 auto;

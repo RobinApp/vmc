@@ -1,3 +1,5 @@
+// Styling for the policy pages (cookies, terms, privacy policies, faq)
+
 .vmc-policy-posts {
     b {
         font-weight: 500;
@@ -21,7 +23,7 @@
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakPoint_3) {
     .vmc-policy-posts {
         &__content {
             max-width: 600px;
@@ -30,7 +32,7 @@
     }
 }
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: $breakPoint_5) {
     .vmc-policy-posts {
         &__content {
             max-width: 640px;

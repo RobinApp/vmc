@@ -32,7 +32,7 @@
 }
 
 // For desktop or large devices
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: $breakPoint_5) {
     // Cookie notice block
     #cookie-notice {
         border: 1px solid $color_2;

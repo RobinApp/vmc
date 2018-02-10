@@ -6,11 +6,11 @@ export class Contact {
         this.scrollBtn = document.querySelector('.opening-hour-button');
         this.ifButtonExist();
     }
-    // Check if opening hour button exists, if so add event listener
+    // Check if opening hour button exists, if so add event listener.
     ifButtonExist() {
         this.scrollBtn !== null ? this.scrollBtn.addEventListener('click', e => this.scrollToOpeningHour(e)) : '';
     }
-    // Scroll to opening hours
+    // Scroll to opening hours.
     scrollToOpeningHour(e) {
         smoothScroll(this.elementID);
     }
