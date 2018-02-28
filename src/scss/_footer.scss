@@ -39,9 +39,10 @@
         text-align: center;
         width: 80%;
     }
-    &__scroll {
-        &:after {
-            // content: ' >';
+    &__logo {
+        img {
+            height: auto !important;
+            width: auto !important;
         }
     }
 }

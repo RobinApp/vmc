@@ -44,19 +44,7 @@ require_once('includes.php');
 
 			<?php  dynamic_sidebar('sidebar-7'); ?> <!-- Info Menu sidebar -->
 
-			<div class="site-footer__logo">
-				<?php
-					if ( $attachments = get_children( array(
-						'post_type' => 'attachment',
-						'post_mime_type'=>'image',
-						'numberposts' => 1,
-						'post_status' => null
-					)));
-					foreach ($attachments as $attachment) {
-					?> <img src="<?php echo wp_get_attachment_url( $attachment->ID, '' , true, false, '/vmc-logo-white.svg' ); ?>" alt="VMC Gotland Logo White"> <?php
-					}
-				?>
-			</div>
+			<?php  dynamic_sidebar('sidebar-13'); ?> <!-- Info Menu sidebar -->
 
 			<div class="site-footer__scroll">
 					<a class="scroll-top-btn button__standard button__standard--white-border">Till toppen på sidan</a>

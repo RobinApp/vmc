@@ -113,7 +113,7 @@ add_action( 'after_setup_theme', 'vmc_gotland_content_width', 0 );
 function vmc_gotland_widgets_init() {
 	// Widget for phone number
 	register_sidebar( array(
-		'name'          => esc_html__( 'Phone Widget', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Phone Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-1',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s phone-widget">',
@@ -123,7 +123,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget for email address
 	register_sidebar( array(
-		'name'          => esc_html__( 'Email Widget', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Email Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-2',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s email-widget">',
@@ -133,7 +133,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget for address
 	register_sidebar( array(
-		'name'          => esc_html__( 'Address Widget', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Address Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-3',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s address-widget">',
@@ -143,7 +143,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget for map
 	register_sidebar( array(
-		'name'          => esc_html__( 'Map Widget', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Map Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-4',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s map-widget">',
@@ -153,7 +153,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget for contact form
 	register_sidebar( array(
-		'name'          => esc_html__( 'Contact Form Widget', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Contact Form Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-5',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s vmc-contact-banner__form">',
@@ -163,7 +163,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget for opening hours
 	register_sidebar( array(
-		'name'          => esc_html__( 'Opening Hours Widget', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Opening Hours Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-6',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s open-widget">',
@@ -173,7 +173,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget for info menu in footer, for cookies, terms, privacy policy and social medias.
 	register_sidebar( array(
-		'name'          => esc_html__( 'Info Menu Widget', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Info Menu Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-7',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s site-footer__info-widget">',
@@ -183,7 +183,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget TacdisEcom Service Booking.
 	register_sidebar( array(
-		'name'          => esc_html__( 'TacdisEcom Service Booking Widget', 'vmc_gotland' ),
+		'name'          => esc_html__( 'TacdisEcom Service Booking Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-8',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s tacdis-ecom-widget">',
@@ -193,7 +193,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget TacdisEcom Wheel Change.
 	register_sidebar( array(
-		'name'          => esc_html__( 'TacdisEcom Wheel Change Widget', 'vmc_gotland' ),
+		'name'          => esc_html__( 'TacdisEcom Wheel Change Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-9',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s tacdis-ecom-widget">',
@@ -203,7 +203,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget TacdisEcom Window Repair.
 	register_sidebar( array(
-		'name'          => esc_html__( 'TacdisEcom Window Repair Widget', 'vmc_gotland' ),
+		'name'          => esc_html__( 'TacdisEcom Window Repair Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-10',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s tacdis-ecom-widget">',
@@ -213,7 +213,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget Service Menu.
 	register_sidebar( array(
-		'name'          => esc_html__( 'Service Menu Widget', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Service Menu Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-11',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s service-menu-widget">',
@@ -223,7 +223,7 @@ function vmc_gotland_widgets_init() {
 	) );
 	// Widget Service Text.
 	register_sidebar( array(
-		'name'          => esc_html__( 'Service Text Widget', 'vmc_gotland' ),
+		'name'          => esc_html__( 'Service Text Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-12',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s service-text-widget">',
@@ -231,8 +231,19 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h1 class="service-text-widget__heading">',
 		'after_title'   => '</h1>',
 	) );
+	// Widget Logo Footer.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Logo Footer Sidebar', 'vmc_gotland' ),
+		'id'            => 'sidebar-13',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="site-footer__logo">',
+		'after_widget'  => '</div>',
+	) );
 }
 add_action( 'widgets_init', 'vmc_gotland_widgets_init' );
+
+// Enable shortcodes in text widgets
+add_filter('widget_text','do_shortcode');
 
 /**
  * Enqueue scripts and styles.

@@ -39,6 +39,13 @@
         margin: 0 auto;
         width: 100%;
     }
+    // For displaying temporary text messages instead of the actual service widget.
+    .textwidget > p {
+        text-align: center;
+        margin: 50px auto;
+        max-width: 640px;
+        color: $errorColor;
+    }
 }
 
 .service-menu-widget,
@@ -94,6 +101,7 @@
         width: 500px;
     }
     .tacdis-ecom-wrapper {
+        height: initial;
         min-height: $heightMobile;
         padding: 30px 10px;
         top: 0;
