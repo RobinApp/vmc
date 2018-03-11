@@ -29,6 +29,10 @@
     width: 100%;
     min-height: $heightMobile;
     background-color: rgba(0, 48, 87, 0.7);
+    .disabled {
+        pointer-events: none;
+        opacity: 0.3;
+    }
 }
 .tacdis-ecom-wrapper {
     background-color: #fff;
@@ -38,14 +42,46 @@
         height: 100%;
         margin: 0 auto;
         width: 100%;
+        // For displaying temporary text messages instead of the actual service widget.
+        // Add a <p> tag with this class while editing in the admin panel.
+        .temp-msg {
+            margin: 50px auto;
+            max-width: 640px;
+            text-align: center;
+            color: $errorColor;
+        }
+        // Loader/spinner
+        .tacdis-loader {
+            color: $color_7;
+            max-width: 640px;
+            text-align: center;
+            .loader-spinner,
+            p {
+                box-sizing: border-box;
+                position: absolute;
+                left: calc(50% - 40px);
+            }
+            .loader-spinner {
+                border: 7px solid $color_2;
+                border-top: 7px solid $color_3;
+                border-radius: 50%;
+                width: 80px;
+                height: 80px;
+                animation: spin 2s linear infinite;
+                top: calc(50% - 80px);
+            }
+            p {
+                width: 80px;
+                margin: 0;
+                top: calc(50% - 55px);
+            }
+        }
     }
-    // For displaying temporary text messages instead of the actual service widget.
-    .textwidget > p {
-        text-align: center;
-        margin: 50px auto;
-        max-width: 640px;
-        color: $errorColor;
-    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .service-menu-widget,

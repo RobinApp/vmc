@@ -13,7 +13,7 @@ get_header(); ?>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main">
-        <?php serviceBanner('service'); ?>
+        <?php servicePage(); ?>
     </main><!-- #main -->
 </div><!-- #primary -->
 

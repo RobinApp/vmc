@@ -181,36 +181,6 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h3 class="info-widget__heading">',
 		'after_title'   => '</h3>',
 	) );
-	// Widget TacdisEcom Service Booking.
-	register_sidebar( array(
-		'name'          => esc_html__( 'TacdisEcom Service Booking Sidebar', 'vmc_gotland' ),
-		'id'            => 'sidebar-8',
-		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s tacdis-ecom-widget">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="tacdis-ecom-widget__heading">',
-		'after_title'   => '</h3>',
-	) );
-	// Widget TacdisEcom Wheel Change.
-	register_sidebar( array(
-		'name'          => esc_html__( 'TacdisEcom Wheel Change Sidebar', 'vmc_gotland' ),
-		'id'            => 'sidebar-9',
-		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s tacdis-ecom-widget">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="tacdis-ecom-widget__heading">',
-		'after_title'   => '</h3>',
-	) );
-	// Widget TacdisEcom Window Repair.
-	register_sidebar( array(
-		'name'          => esc_html__( 'TacdisEcom Window Repair Sidebar', 'vmc_gotland' ),
-		'id'            => 'sidebar-10',
-		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s tacdis-ecom-widget">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h3 class="tacdis-ecom-widget__heading">',
-		'after_title'   => '</h3>',
-	) );
 	// Widget Service Menu.
 	register_sidebar( array(
 		'name'          => esc_html__( 'Service Menu Sidebar', 'vmc_gotland' ),

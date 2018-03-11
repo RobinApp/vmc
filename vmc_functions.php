@@ -69,7 +69,7 @@ function standardSlider($val) {
                     ?>
                     <article class="vmc-slider__content swiper-slide">
                         <div class="vmc-slider__img" <?php echo $background; ?>></div>
-                        <div class="vmc-slider__txt">
+                        <div class="vmc-slider__txt vmc-slider__txt-<?php customFields('slider_text_position'); ?>">
                             <h1><?php the_title(); ?></h1>
                             <p><?php the_excerpt(); ?></p>
                             <?php if( get_field('link_title') ): ?>
@@ -363,120 +363,66 @@ function promotionPosts($val) {
     <?php 
 }
 
-
 // ****************************************************************************************************
-// ***************************************** Service Banner *******************************************
+// **************************************** Tacdis Ecom Page ******************************************
 // ****************************************************************************************************
 
-// The function must be called for within a container element with the class name "vmc-service-banner"
+function tacdisEcomPage() {
+    if(have_posts()) :
+        while(have_posts()) : the_post();
 
-function serviceBanner($val) {
-    
-    global $standardSlider;
-    
-    // Query to only get posts from CPT vmc_gotland_slider with a specific category
-    $query = new WP_Query( array(
-        'tax_query' => array(
-            array(
-                'taxonomy'  => 'vmc_gotland_cat_slider',
-                'field'     => 'slug',
-                'terms'     =>  $val,
-            ),
-        ),
-        'post_type' => $standardSlider,
-        'order'     =>'DESC',
-        'posts_per_page' => -1,
-    ));
-
-    ?>
-    <div class="vmc-service-banner__container">
-        <section class="vmc-service-banner__wrapper">
-            <?php 
-
-            // For displaying "Slider" posts
-            if ( $query->have_posts() ) {
-
-                while ( $query->have_posts() ) {
-
-                    $query->the_post();
-
-                    $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
-                    $background = "style=\"background-image: url('$thumb_url');\"";
-
-                    ?>
-                    <article class="vmc-service-banner__content">
-                        <div class="vmc-service-banner__img" <?php echo $background; ?> >
-                            <div class="service-page-wrapper">
-                                <?php  dynamic_sidebar('sidebar-12'); ?> <!-- Service Text Widget --> 
-                                <?php  dynamic_sidebar('sidebar-11'); ?> <!-- Service Menu Widget --> 
-                            </div>
-                        </div>
-                        
-                    </article><!-- .vmc-contact-banner__content -->
-                    <?php         
-                }
-            }
+            $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
+            $background = "style=\"background-image: url('$thumb_url');\""; 
             ?>
-        </section><!-- .vmc-contact-banner__wrapper -->
-    </div><!-- .vmc-contact-banner__container -->
-    <?php 
-}
-
-// ****************************************************************************************************
-// *************************************** Tacdis Ecom Banner *****************************************
-// ****************************************************************************************************
-
-// The function must be called for within a container element with the class name "vmc-service-banner"
-
-function tacdisEcomBanner($val, $val2) {
-    
-    global $standardSlider;
-    
-    // Query to only get posts from CPT vmc_gotland_slider with a specific category
-    $query = new WP_Query( array(
-        'tax_query' => array(
-            array(
-                'taxonomy'  => 'vmc_gotland_cat_slider',
-                'field'     => 'slug',
-                'terms'     =>  $val,
-            ),
-        ),
-        'post_type' => $standardSlider,
-        'order'     =>'DESC',
-        'posts_per_page' => -1,
-    ));
-
-    ?>
-    <div class="vmc-service-banner__container">
-        <section class="vmc-service-banner__wrapper">
-            <?php 
-
-            // For displaying "Slider" posts
-            if ( $query->have_posts() ) {
-
-                while ( $query->have_posts() ) {
-
-                    $query->the_post();
-
-                    $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
-                    $background = "style=\"background-image: url('$thumb_url');\"";
-
-                    ?>
+            <div class="vmc-service-banner__container">
+                <section class="vmc-service-banner__wrapper">
                     <article class="vmc-service-banner__content">
                         <div class="vmc-service-banner__img" <?php echo $background; ?> >
                             <div class="service-page-wrapper tacdis-ecom-wrapper">
                                 <div class="tacdis-ecom-booking-container">
-                                    <?php  dynamic_sidebar($val2); ?> <!-- Widget --> 
-                                </div>
-                            </div>
-                        </div>
-                        
+                                    <?php  the_content(); ?>
+                                </div><!-- .tacdis-ecom-booking-container -->
+                            </div><!-- .service-page-wrapper -->  
+                        </div><!-- .vmc-service-banner__img -->                       
                     </article><!-- .vmc-service-banner__content -->
-                    <?php         
-                }
-            }
+                </section><!-- .vmc-service-banner__wrapper -->
+            </div><!-- .vmc-service-banner__container -->
+            <?php 
+
+        endwhile; //resetting the page loop
+    endif;
+    wp_reset_query(); //resetting the page query
+
+}
+
+// ****************************************************************************************************
+// ****************************************** Service Page ********************************************
+// ****************************************************************************************************
+
+function servicePage() {
+    if(have_posts()) :
+        while(have_posts()) : the_post();
+
+            $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
+            $background = "style=\"background-image: url('$thumb_url');\""; 
             ?>
-        </section><!-- .vmc-service-banner__wrapper -->
-    </div><!-- .vmc-service-banner__container -->
-    <?php 
+            <div class="vmc-service-banner__container">
+                <section class="vmc-service-banner__wrapper">
+                    <article class="vmc-service-banner__content">
+                        <div class="vmc-service-banner__img" <?php echo $background; ?> >
+                            <div class="service-page-wrapper">
+                                <section></section>
+                                <?php  dynamic_sidebar('sidebar-12'); ?> <!-- Service Text Widget --> 
+                                <?php  dynamic_sidebar('sidebar-11'); ?> <!-- Service Menu Widget --> 
+                            </div><!-- .service-page-wrapper -->
+                        </div><!-- .vmc-service-banner__img -->                    
+                    </article><!-- .vmc-service-banner__content -->
+                </section><!-- .vmc-service-banner__wrapper -->
+            </div><!-- .vmc-service-banner__container -->
+            <?php 
+
+        endwhile; //resetting the page loop
+    endif;
+    wp_reset_query(); //resetting the page query
+
 }
