@@ -144,7 +144,6 @@ a {
     &__pagination {
         .swiper-pagination-bullet {
             background-color: $white;
-            // box-shadow: $boxShadow;
         }
     }
 }
@@ -204,29 +203,6 @@ a {
             margin: auto;
             margin-top: 30px;
         }
-        &__txt-left {
-            h1,
-            p,
-            .vmc-slider__link-container {
-                text-align: left;
-                margin-left: 0;
-            }
-        }
-        &__txt-right {
-            h1,
-            p,
-            .vmc-slider__link-container {
-                text-align: right;
-                margin-left: 40%;
-            }
-        }
-        &__txt-center {
-            h1,
-            p,
-            .vmc-slider__link-container {
-                text-align: center;
-            }
-        }
     }
 }
 
@@ -251,19 +227,6 @@ a {
             h1,
             p {
                 padding: 10px;
-            }
-        }
-        &__txt-left,
-        &__txt-right,
-        &__txt-center {
-            h1,
-            p,
-            .vmc-slider__link-container {
-                text-align: center;
-                margin: 0 auto;
-            }
-            .vmc-slider__link-container {
-                margin-top: 30px;
             }
         }
     }
@@ -322,33 +285,6 @@ a {
                 width: 50%;
             }
         }
-        &__txt-left {
-            h1,
-            p,
-            .vmc-slider__link-container {
-                text-align: left;
-                margin-left: 0;
-            }
-        }
-        &__txt-right {
-            h1,
-            p,
-            .vmc-slider__link-container {
-                text-align: right;
-                margin-left: 50%;
-            }
-        }
-        &__txt-center {
-            h1,
-            p,
-            .vmc-slider__link-container {
-                text-align: center;
-                margin: 0 auto;
-            }
-            .vmc-slider__link-container {
-                margin-top: 30px;
-            }
-        }
     }
 }
 
@@ -357,10 +293,9 @@ a {
         &__img {
             height: 50%;
         }
-        &__txt,
-        &__txt-left,
-        &__txt-right,
-        &__txt-center {
+        &__txt {
+            margin: 0 auto;
+            margin-top: 30px;
             h1,
             p,
             .vmc-slider__link-container {
@@ -375,10 +310,6 @@ a {
         }
         &__link-container {
             text-align: center;
-        }
-        &__txt {
-            margin: 0 auto;
-            margin-top: 30px;
         }
     }
 }
@@ -401,13 +332,6 @@ a {
             .vmc-slider__link-container {
                 padding: 0 60px;
                 width: 40%;
-            }
-        }
-        &__txt-right {
-            h1,
-            p,
-            .vmc-slider__link-container {
-                margin-left: 60%;
             }
         }
         &__button {

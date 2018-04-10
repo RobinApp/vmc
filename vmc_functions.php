@@ -67,9 +67,9 @@ function standardSlider($val) {
                     $background = "style=\"background-image: url('$thumb_url');\"";
 
                     ?>
-                    <article class="vmc-slider__content swiper-slide">
+                    <article class="vmc-slider__content vmc-slider__content--<?php customFields('slider_text_color'); ?> swiper-slide">
                         <div class="vmc-slider__img" <?php echo $background; ?>></div>
-                        <div class="vmc-slider__txt vmc-slider__txt-<?php customFields('slider_text_position'); ?>">
+                        <div class="vmc-slider__txt vmc-slider__txt--<?php customFields('slider_text_position'); ?> vmc-slider__txt--btn-color-<?php customFields('slider_text_color'); ?>">
                             <h1><?php the_title(); ?></h1>
                             <p><?php the_excerpt(); ?></p>
                             <?php if( get_field('link_title') ): ?>
