@@ -109,7 +109,7 @@ a {
             text-align: center;
             padding: 10px;
         }
-        .button__standard--white-border {
+        .button__standard--white-border-fill-hover {
             color: $white;
         }
     }
@@ -332,6 +332,11 @@ a {
             .vmc-slider__link-container {
                 padding: 0 60px;
                 width: 40%;
+            }
+            .button__standard--white-border-fill-hover {
+                &:hover {
+                    color: $color_4;
+                }
             }
         }
         &__button {

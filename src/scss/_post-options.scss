@@ -3,8 +3,8 @@
 @media screen and (min-width: $breakPoint_2) {
     // Slider options
     .vmc-slider {
-        // Text position
         &__txt {
+            // Text position
             &--left {
                 h1,
                 p,
@@ -28,9 +28,22 @@
                     text-align: center;
                 }
             }
+            // Button color
+            &--btn-color-black {
+                .button__standard--white-border-fill-hover {
+                    border-color: $color_4;
+                    color: $color_4;
+                }
+            }
+            &--btn-color-white {
+                .button__standard--white-border-fill-hover {
+                    border-color: $white;
+                    color: $white;
+                }
+            }
         }
-        // Text color
         &__content {
+            // Text color
             &--black {
                 color: $color_4;
             }
@@ -44,8 +57,8 @@
 @media screen and (min-width: $breakPoint_3) {
     // Slider options
     .vmc-slider {
-        // Text position
         &__txt {
+            // Text position
             &--left,
             &--right,
             &--center {
@@ -59,9 +72,17 @@
                     margin-top: 30px;
                 }
             }
+            // Button color
+            &--btn-color-black,
+            &--btn-color-white {
+                .button__standard--white-border-fill-hover {
+                    border-color: $white;
+                    color: $white;
+                }
+            }
         }
-        // Text color
         &__content {
+            // Text color
             &--black,
             &--white {
                 color: $white;
@@ -73,8 +94,8 @@
 @media screen and (min-width: $breakPoint_4) {
     // Slider options
     .vmc-slider {
-        // Text position
         &__txt {
+            // Text position
             &--left {
                 h1,
                 p,
@@ -100,6 +121,19 @@
                 }
                 .vmc-slider__link-container {
                     margin-top: 30px;
+                }
+            }
+            // Button color
+            &--btn-color-black {
+                .button__standard--white-border-fill-hover {
+                    border-color: $color_4;
+                    color: $color_4;
+                }
+            }
+            &--btn-color-white {
+                .button__standard--white-border-fill-hover {
+                    border-color: $white;
+                    color: $white;
                 }
             }
         }
@@ -135,6 +169,14 @@
                     margin-top: 30px;
                 }
             }
+            // Button color
+            &--btn-color-black,
+            &--btn-color-white {
+                .button__standard--white-border-fill-hover {
+                    border-color: $white;
+                    color: $white;
+                }
+            }
         }
         // Text color
         &__content {
@@ -155,6 +197,23 @@
                 p,
                 .vmc-slider__link-container {
                     margin-left: 60%;
+                }
+            }
+            // Button color
+            &--btn-color-black {
+                .button__standard--white-border-fill-hover {
+                    &:hover {
+                        background-color: $color_4;
+                        color: $white;
+                    }
+                }
+            }
+            &--btn-color-white {
+                .button__standard--white-border-fill-hover {
+                    &:hover {
+                        background-color: $white;
+                        color: $color_4;
+                    }
                 }
             }
         }

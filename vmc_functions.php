@@ -74,12 +74,12 @@ function standardSlider($val) {
                             <p><?php the_excerpt(); ?></p>
                             <?php if( get_field('link_title') ): ?>
                                 <div class="vmc-slider__link-container">
-                                    <a href="<?php the_permalink() ?>" class="button__standard button__standard--white-border"><?php the_field('link_title'); ?></a>
+                                    <a href="<?php the_permalink() ?>" class="button__standard button__standard--white-border-fill-hover"><?php the_field('link_title'); ?></a>
                                 </div>
                             <?php endif; ?>
                             <?php if( get_field('link_title_custom') ): ?>
                                 <div class="vmc-slider__link-container">
-                                    <a href="<?php the_field('link_custom'); ?>" class="button__standard button__standard--white-border"><?php the_field('link_title_custom'); ?></a>
+                                    <a href="<?php the_field('link_custom'); ?>" class="button__standard button__standard--white-border-fill-hover"><?php the_field('link_title_custom'); ?></a>
                                 </div>
                             <?php endif; ?>
                         </div>

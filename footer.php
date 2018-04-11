@@ -47,7 +47,7 @@ require_once('includes.php');
 			<?php  dynamic_sidebar('sidebar-13'); ?> <!-- Info Menu sidebar -->
 
 			<div class="site-footer__scroll">
-					<a class="scroll-top-btn button__standard button__standard--white-border">Till toppen på sidan</a>
+					<a class="scroll-top-btn button__standard button__standard--white-border-fill-hover">Till toppen på sidan</a>
 			</div>
 
 		</div><!-- .site-footer__wrapper -->

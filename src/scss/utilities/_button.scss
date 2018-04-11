@@ -19,11 +19,31 @@
             border-color: $white;
             color: $white;
         }
+        &--black-border-fill-hover {
+            border-color: $color_4;
+            color: $color_4;
+        }
+        &--white-border-fill-hover {
+            border-color: $white;
+            color: $white;
+        }
         @media screen and (min-width: $breakPoint_5) {
             &--black-border,
             &--white-border {
                 &:hover {
                     opacity: 0.4;
+                }
+            }
+            &--black-border-fill-hover {
+                &:hover {
+                    background-color: $color_4;
+                    color: $white;
+                }
+            }
+            &--white-border-fill-hover {
+                &:hover {
+                    background-color: $white;
+                    color: $color_4;
                 }
             }
         }
