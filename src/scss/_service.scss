@@ -89,12 +89,12 @@
     box-sizing: border-box;
     color: #fff;
     padding: 10px;
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 .service-menu-widget {
     width: 100%;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     .menu {
         @include flex-box(column, flex-start, wrap);
         .menu-item,
@@ -108,7 +108,7 @@
         }
         .menu-item a {
             @extend .button__standard;
-            @extend .button__standard--white-border;
+            @extend .button__standard--white-border-fill-hover;
             width: 100%;
         }
     }
