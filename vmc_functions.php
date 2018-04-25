@@ -2,6 +2,7 @@
 
 $val; // Parameters needed by functions, could be a tag, category etc.
 $val2; // If extra parameter is needed.
+$theBrand; // For brand name.
 $standardSlider = 'vmc_gotland_slider'; // CPT Slider
 $standardPosts = 'post'; // Standard Posts
 $employeePosts = 'vmc_gotland_employee'; // CPT Employee
@@ -307,12 +308,45 @@ function contactBanner($val) {
 }
 
 // ****************************************************************************************************
+// ****************************************** Promotion Page ********************************************
+// ****************************************************************************************************
+
+// The function must be called for within a container element with the class name "vmc-promotion-banner"
+
+function promotionPage() {
+    if(have_posts()) :
+        while(have_posts()) : the_post();
+
+            $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
+            $background = "style=\"background-image: url('$thumb_url');\""; 
+            ?>
+            <div class="vmc-promotion-banner__container">
+                <section class="vmc-promotion-banner__wrapper">
+                    <article class="vmc-promotion-banner__content">
+                        <div class="vmc-promotion-banner__img" <?php echo $background; ?> >
+                            <div class="promotion-page-wrapper">
+                                <?php  dynamic_sidebar('sidebar-15'); ?> <!-- Promotion Text Sidebar --> 
+                                <?php  dynamic_sidebar('sidebar-14'); ?> <!-- Promotion Menu Sidebar --> 
+                            </div><!-- .promotion-page-wrapper -->
+                        </div><!-- .vmc-promotion-banner__img -->                    
+                    </article><!-- .vmc-promotion-banner__content -->
+                </section><!-- .vmc-promotion-banner__wrapper -->
+            </div><!-- .vmc-promotion-banner__container -->
+            <?php 
+
+        endwhile; // Resetting the page loop
+    endif;
+    wp_reset_query(); // Resetting the page query
+
+}
+
+// ****************************************************************************************************
 // ***************************************** Poromtion Posts ******************************************
 // ****************************************************************************************************
 
 // The function must be called for within a container element with the class name "vmc-promotion-posts"
 
-function promotionPosts($val) {
+function promotionPosts($val, $theBrand) {
     
     global $promotionPosts;
     
@@ -335,32 +369,61 @@ function promotionPosts($val) {
         <?php 
 
         // For displaying posts
-        if ( $query->have_posts() ) {
+        if ( $query->have_posts() ) { ?>
 
-            while ( $query->have_posts() ) {
+            <div class="vmc-promotion-posts__container">
+                <section class="vmc-promotion-posts__wrapper">
+                    <?php 
+                    while ( $query->have_posts() ) {
 
-                $query->the_post();
+                        $query->the_post();
 
-                $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
-                $background = "style=\"background-image: url('$thumb_url');\"";
+                        $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
+                        $background = "style=\"background-image: url('$thumb_url');\"";
 
-                ?>
-                <article class="vmc-promotion-posts__content">
-                    <div class="vmc-promotion-posts__img" <?php echo $background; ?>></div>
-                    <div class="vmc-promotion-posts__txt">
-                        <h2><?php the_title(); ?></h2>
-                        <p><?php the_excerpt(); ?></p>
-                        <a href="<?php the_permalink() ?>" class="button__standard button__standard--black-border" title="Länk till <?php the_title_attribute(); ?>"><?php customFields('link_title_promotion'); ?></a>
-                        <p class="promotion-validity"><?php customFields('promotion_start_end'); ?></p>
-                    </div>
-                </article><!-- .vmc-promotion-posts__content -->
-                <?php         
-            }
+                        ?>
+                        <article class="vmc-promotion-posts__content">
+                            <div class="vmc-promotion-posts__img" <?php echo $background; ?>></div>
+                            <div class="vmc-promotion-posts__txt">
+                                <h2><?php the_title(); ?></h2>
+                                <p><?php the_excerpt(); ?></p>
+                                <a href="<?php the_permalink() ?>" class="button__standard button__standard--black-border" title="Länk till <?php the_title_attribute(); ?>"><?php customFields('link_title_promotion'); ?></a>
+                                <p class="promotion-validity"><?php customFields('promotion_start_end'); ?></p>
+                            </div>
+                        </article><!-- .vmc-promotion-posts__content -->
+                        <?php         
+                    } ?>
+                </section><!-- .vmc-promotion-posts__wrapper -->
+            </div><!-- .vmc-promotion-posts__container -->
+            <?php  
+        } else { 
+
+            if(have_posts()) :
+                while(have_posts()) : the_post();
+
+                    $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
+                    $background = "style=\"background-image: url('$thumb_url');\""; 
+                    ?>
+                    <div class="vmc-promotion-banner__container">
+                        <section class="vmc-promotion-banner__wrapper">
+                            <article class="vmc-promotion-banner__content">
+                                <div class="vmc-promotion-banner__img" <?php echo $background; ?> >
+                                    <div class="promotion-page-wrapper">
+                                        <div class="vmc-promotion-banner__no-promotions">
+                                            <h1>Beklagar...</h1>
+                                            <p>Men tyvärr har vi inga aktuella erbjudanden för <?php echo $theBrand; ?> just nu.</p>
+                                        </div>
+                                    </div><!-- .promotion-page-wrapper -->
+                                </div><!-- .vmc-promotion-banner__img -->                    
+                            </article><!-- .vmc-promotion-banner__content -->
+                        </section><!-- .vmc-promotion-banner__wrapper -->
+                    </div><!-- .vmc-promotion-banner__container -->
+                    <?php 
+
+                endwhile; // Resetting the page loop
+            endif;
+            wp_reset_query(); // Resetting the page query
         }
-        ?>
-        </section><!-- .vmc-promotion-posts__wrapper -->
-    </div><!-- .vmc-promotion-posts__container -->
-    <?php 
 }
 
 // ****************************************************************************************************
@@ -411,7 +474,6 @@ function servicePage() {
                     <article class="vmc-service-banner__content">
                         <div class="vmc-service-banner__img" <?php echo $background; ?> >
                             <div class="service-page-wrapper">
-                                <section></section>
                                 <?php  dynamic_sidebar('sidebar-12'); ?> <!-- Service Text Widget --> 
                                 <?php  dynamic_sidebar('sidebar-11'); ?> <!-- Service Menu Widget --> 
                             </div><!-- .service-page-wrapper -->
@@ -421,8 +483,8 @@ function servicePage() {
             </div><!-- .vmc-service-banner__container -->
             <?php 
 
-        endwhile; //resetting the page loop
+        endwhile; // Resetting the page loop
     endif;
-    wp_reset_query(); //resetting the page query
+    wp_reset_query(); // Resetting the page query
 
 }

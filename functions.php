@@ -111,7 +111,7 @@ add_action( 'after_setup_theme', 'vmc_gotland_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function vmc_gotland_widgets_init() {
-	// Widget for phone number
+	// Sidebar for phone number
 	register_sidebar( array(
 		'name'          => esc_html__( 'Phone Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-1',
@@ -121,7 +121,7 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h2 class="widget-title phone-widget__heading">',
 		'after_title'   => '</h2>',
 	) );
-	// Widget for email address
+	// Sidebar for email address
 	register_sidebar( array(
 		'name'          => esc_html__( 'Email Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-2',
@@ -131,7 +131,7 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h2 class="widget-title email-widget__heading">',
 		'after_title'   => '</h2>',
 	) );
-	// Widget for address
+	// Sidebar for address
 	register_sidebar( array(
 		'name'          => esc_html__( 'Address Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-3',
@@ -141,7 +141,7 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h2 class="widget-title address-widget__heading">',
 		'after_title'   => '</h2>',
 	) );
-	// Widget for map
+	// Sidebar for map
 	register_sidebar( array(
 		'name'          => esc_html__( 'Map Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-4',
@@ -151,7 +151,7 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h2 class="widget-title map-widget__heading">',
 		'after_title'   => '</h2>',
 	) );
-	// Widget for contact form
+	// Sidebar for contact form
 	register_sidebar( array(
 		'name'          => esc_html__( 'Contact Form Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-5',
@@ -161,7 +161,7 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-	// Widget for opening hours
+	// Sidebar for opening hours
 	register_sidebar( array(
 		'name'          => esc_html__( 'Opening Hours Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-6',
@@ -171,7 +171,7 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h3 class="open-widget__heading">',
 		'after_title'   => '</h3>',
 	) );
-	// Widget for info menu in footer, for cookies, terms, privacy policy and social medias.
+	// Sidebar for info menu in footer, for cookies, terms, privacy policy and social medias.
 	register_sidebar( array(
 		'name'          => esc_html__( 'Info Menu Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-7',
@@ -181,7 +181,7 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h3 class="info-widget__heading">',
 		'after_title'   => '</h3>',
 	) );
-	// Widget Service Menu.
+	// Service Menu Sidebar.
 	register_sidebar( array(
 		'name'          => esc_html__( 'Service Menu Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-11',
@@ -191,7 +191,7 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h3 class="service-menu-widget__heading">',
 		'after_title'   => '</h3>',
 	) );
-	// Widget Service Text.
+	// Service Text Sidebar.
 	register_sidebar( array(
 		'name'          => esc_html__( 'Service Text Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-12',
@@ -201,12 +201,62 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h1 class="service-text-widget__heading">',
 		'after_title'   => '</h1>',
 	) );
-	// Widget Logo Footer.
+	// Logo Footer Sidebar.
 	register_sidebar( array(
 		'name'          => esc_html__( 'Logo Footer Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-13',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
 		'before_widget' => '<div id="%1$s" class="site-footer__logo">',
+		'after_widget'  => '</div>',
+	) );
+	// Promotions Menu Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Promotions Menu Sidebar', 'vmc_gotland' ),
+		'id'            => 'sidebar-14',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="promotion-menu">',
+		'after_widget'  => '</div>',
+	) );
+	// Promotions Text Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Promotions Text Sidebar', 'vmc_gotland' ),
+		'id'            => 'sidebar-15',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="promotion-text">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h1 class="promotion-text__heading">',
+		'after_title'   => '</h1>',
+	) );
+	// Volvo Menu Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Volvo Menu Sidebar', 'vmc_gotland' ),
+		'id'            => 'sidebar-16',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="volvo-menu">',
+		'after_widget'  => '</div>',
+	) );
+	// Renault Menu Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Renault Menu Sidebar', 'vmc_gotland' ),
+		'id'            => 'sidebar-17',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="renault-menu">',
+		'after_widget'  => '</div>',
+	) );
+	// Nissan Menu Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Nissan Menu Sidebar', 'vmc_gotland' ),
+		'id'            => 'sidebar-18',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="nissan-menu">',
+		'after_widget'  => '</div>',
+	) );
+	// Dacia Menu Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Dacia Menu Sidebar', 'vmc_gotland' ),
+		'id'            => 'sidebar-19',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="dacia-menu">',
 		'after_widget'  => '</div>',
 	) );
 }

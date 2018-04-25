@@ -17,7 +17,7 @@
     &__img {
         @extend .bg-img;
         width: 100%;
-        min-height: calc(100vh - 50px);
+        min-height: $heightMobile;
     }
 }
 
@@ -25,10 +25,10 @@
 // but the .tacdis-ecom-wrapper class is only added on the actual booking
 // page to allow for a nother styling.
 .service-page-wrapper {
-    box-sizing: border-box;
-    width: 100%;
-    min-height: $heightMobile;
     background-color: rgba(0, 48, 87, 0.7);
+    box-sizing: border-box;
+    min-height: $heightMobile;
+    width: 100%;
     .disabled {
         pointer-events: none;
         opacity: 0.3;
