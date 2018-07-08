@@ -140,6 +140,8 @@ function smoothScroll(eID) {
 
 // Swiper by Vladimir Kharlampidi from iDangero.us
 
+// Standard Swiper
+
 var mySwiper = new Swiper('.swiper-container', {
     // Optional parameters
     direction: 'horizontal',
@@ -169,7 +171,52 @@ var mySwiper = new Swiper('.swiper-container', {
     }
 });
 
-exports.default = mySwiper;
+// Employee Swiper
+
+var employeeSwiper = new Swiper('.swiper-employee-container', {
+    // Optional parameters
+    direction: 'horizontal',
+    // loop: true,
+
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination'
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+    },
+
+    // Swipe speed
+    speed: 800,
+
+    hideOnClick: true,
+    disabledClass: 'swiper-button-disabled',
+    hiddenClass: 'swiper-button-hidden',
+
+    // Autoplay interval time
+    // autoplay: {
+    //     delay: 7000,
+    // },
+
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+
+    coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: false
+    }
+
+});
+
+exports.default = { employeeSwiper: employeeSwiper, mySwiper: mySwiper };
 
 /***/ }),
 /* 1 */

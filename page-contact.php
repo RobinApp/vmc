@@ -49,21 +49,19 @@ get_header(); ?>
     <div id="primary" class="content-area">
         <main id="main" class="site-main vmc-contact">       
 
-            <?php employeePosts('kundservice', 'Kundservice') ?>
-
-            <?php employeePosts('bil-transportbilsforsaljning', 'Bil- &amp; Transportbilsförsäljning') ?>
+            <?php employeePosts('bilforsaljning', 'Bilförsäljning', 'background-sales') ?>
             
-            <?php employeePosts('verkstad-personlig-servicetekniker', 'Verkstad – Personlig Servicetekniker') ?>
+            <?php employeePosts('verkstad-personlig-servicetekniker', 'Verkstad – Personlig Servicetekniker', 'background-pst') ?>
             
-            <?php employeePosts('verkstad-interntekniker', 'Verkstad – Interntekniker') ?>
+            <?php employeePosts('verkstad-interntekniker', 'Verkstad – Interntekniker', 'background-service') ?>
             
-            <?php employeePosts('reservdelar', 'Reservdelar') ?>
+            <?php employeePosts('reservdelar', 'Reservdelar', 'background-spare-parts') ?>
 
-            <?php employeePosts('rekond', 'Rekond') ?>
+            <?php employeePosts('rekond', 'Rekond', 'background-car-care') ?>
 
-            <?php employeePosts('ekonomi-administration', 'Ekonomi &amp; Administration') ?>
+            <?php employeePosts('ekonomi-administration', 'Ekonomi &amp; Kundsupport', 'background-administration') ?>
 
-            <?php employeePosts('verkstadsadministration', 'Verkstadsadministration') ?>
+            <?php employeePosts('verkstadsadministration', 'Verkstadsadministration', 'background-service-administration') ?>
 
         </main><!-- #main -->
     </div><!-- #primary -->

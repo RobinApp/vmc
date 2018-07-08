@@ -141,6 +141,39 @@
     color: $color_5;
 
     &__wrapper,
+    &__wrapper-background,
+    &__employee-img {
+        @extend .bg-img;
+    }
+
+    &__wrapper {
+        height: $heightMobile;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    &__employee-img {
+        border: 1px solid $color_2;
+        height: 200px;
+        margin: 0 auto;
+        width: 200px;
+    }
+
+    &__employee-content {
+        width: 200px;
+    }
+
+    &__employee-headings {
+        color: $white;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding: 10px 0;
+        text-align: center;
+        width: 80%;
+    }
+
+    &__wrapper,
+    &__wrapper-background,
     &__employee-container,
     &__employee-headings,
     &__employee-content,
@@ -148,43 +181,105 @@
     &__employee-txt {
         box-sizing: inherit;
     }
-    &__wrapper {
-        width: 100%;
-        padding: 10px;
-    }
-    &__employee-container {
-        @include flex-box(row, space-evenly, wrap);
-    }
-    &__employee-headings {
-        background-color: rgba(170, 170, 170, 0.1);
-        padding: 10px;
-        margin: 0;
-        text-align: center;
-        width: 100%;
-    }
-    &__employee-content {
-        padding: 10px;
-        padding-top: 20px;
-        width: 270px;
-    }
-    &__employee-img {
-        @extend .bg-img;
-        border: 1px solid $color_2;
-        height: 250px;
-        margin: 0 auto;
-        width: 250px;
-    }
+
     &__employee-txt {
+        background-color: $transparentBlue;
+        color: $white;
+        height: 200px;
+        margin: 0 auto;
+        padding: 0 10px;
         text-align: center;
-        width: 100%;
-        padding: 10px;
+        width: 200px;
         h3 {
             font-size: 18px;
         }
         h3,
         p {
             margin: 0;
-            padding: 10px 0;
+            padding-top: 10px;
+        }
+    }
+}
+
+@media screen and (min-width: 360px) {
+    .vmc-contact {
+        &__employee-img {
+            height: 250px;
+            width: 250px;
+        }
+
+        &__employee-content,
+        &__employee-txt {
+            width: 250px;
+        }
+
+        &__employee-headings {
+            margin-top: 20px;
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_1) {
+    .vmc-contact {
+        &__employee-txt,
+        &__employee-img {
+            width: 300px;
+        }
+
+        &__employee-img {
+            height: 300px;
+        }
+
+        &__employee-txt {
+            height: 230px;
+            padding: 10px;
+            h3,
+            p {
+                padding: 10px 0;
+            }
+        }
+
+        &__employee-content {
+            width: 300px;
+        }
+
+        &__employee-headings {
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+    }
+}
+
+@media screen and (min-width: 568px) and (orientation: landscape) {
+    .vmc-contact {
+        &__employee-txt,
+        &__employee-img {
+            width: 180px;
+        }
+
+        &__employee-img,
+        &__employee-txt {
+            height: 180px;
+        }
+
+        &__employee-txt {
+            padding: 0 10px;
+            h3,
+            p {
+                padding: 0;
+                padding-top: 10px;
+            }
+        }
+
+        &__employee-content {
+            width: 360px;
+            display: flex;
+            
+        }
+
+        &__employee-headings {
+            margin-bottom: 0;
+            margin-top: 0;
         }
     }
 }
@@ -220,12 +315,50 @@
     }
 }
 
+@media screen and (min-width: $breakPoint_2) and (orientation: landscape) {
+    .vmc-contact {
+        &__employee-txt,
+        &__employee-img {
+            width: 200px;
+            height: 200px;
+        }
+
+        &__employee-content {
+            width: 400px;
+            display: flex;
+        }
+
+        &__employee-headings {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media screen and (min-width: 736px) and (orientation: landscape) {
+    .vmc-contact {
+        &__employee-txt,
+        &__employee-img {
+            width: 250px;
+            height: 250px;
+        }
+
+        &__employee-content {
+            width: 500px;
+            display: flex;
+        }
+
+        &__employee-headings {
+            margin-top: 0;
+        }
+    }
+}
+
 @media screen and (min-width: $breakPoint_3) {
     .vmc-contact-banner {
         @include flex-box(row, flex-start, wrap);
         &__container {
             display: block;
-            height: calc(100vh - 50px);
+            height: $heightMobile;
         }
         &__map-container {
             height: calc(40vh - 50px);
@@ -268,7 +401,6 @@
                 height: 90px;
             }
             .wpcf7-submit {
-                // @extend .button__standard--white-border;
                 border-color: $white;
                 color: $white;
                 max-width: 120px;
@@ -280,12 +412,18 @@
             }
         }
     }
+
+    .vmc-contact {
+        &__employee-txt {
+            height: 250px;
+        }
+    }
 }
 
 @media screen and (min-width: $breakPoint_4 ) and (orientation: landscape) {
     .vmc-contact-banner {
         &__container {
-            height: calc(100vh - 50px);
+            height: $heightMobile;
         }
         &__map-container,
         &__form {
@@ -312,7 +450,7 @@
 @media screen and (min-width: $breakPoint_5) and (orientation: landscape) {
     .vmc-contact-banner {
         &__container {
-            height: calc(100vh - 80px);
+            height: $heightDesktop;
         }
         &__map-container,
         &__form {
@@ -349,16 +487,57 @@
     }
 
     .vmc-contact {
-        &__employee-container {
-            max-width: 1300px;
-            margin: 0 auto;
+        &__employee-content,
+        &__employee-img,
+        &__employee-txt {
+            width: 300px;
         }
+
         &__employee-img {
-            height: 230px;
-            width: 230px;
+            height: 300px;
         }
+
+        &__employee-txt {
+            height: 250px;
+        }
+
         &__employee-content {
+            flex-direction: column;
+        }
+
+        &__employee-headings {
+            margin-top: 20px;
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_4 ) and (orientation: portrait) {
+    .vmc-contact {
+        &__wrapper {
+            height: calc(70vh - 50px);
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_5) {
+    .vmc-contact {
+        &__wrapper {
+            height: $heightDesktop;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+        &__employee-content,
+        &__employee-img,
+        &__employee-txt {
             width: 250px;
+        }
+
+        &__employee-img {
+            height: 250px;
+        }
+
+        &__employee-txt {
+            height: 250px;
         }
     }
 }
@@ -371,7 +550,6 @@
         &__map-container,
         &__form {
             height: calc(60vh - 80px);
-            // top: calc(60vh + 80px - 30vh);
             top: calc(50vh - 30vh + 40px);
             width: 40%;
         }
@@ -419,21 +597,11 @@
             max-width: 1350px;
         }
     }
-    .vmc-contact {
-        &__employee-container {
-            max-width: 1350px;
-        }
-    }
 }
 
 @media screen and (min-width: $breakPoint_8) {
     .vmc-contact-banner {
         &__opening-hours-container {
-            max-width: 1550px;
-        }
-    }
-    .vmc-contact {
-        &__employee-container {
             max-width: 1550px;
         }
     }

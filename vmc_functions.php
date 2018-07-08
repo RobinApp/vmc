@@ -2,6 +2,7 @@
 
 $val; // Parameters needed by functions, could be a tag, category etc.
 $val2; // If extra parameter is needed.
+$val3; // If yet another parameter is needed.
 $theBrand; // For brand name.
 $standardSlider = 'vmc_gotland_slider'; // CPT Slider
 $standardPosts = 'post'; // Standard Posts
@@ -203,9 +204,32 @@ function policyPosts($val) {
 
 // The function must be called for within a container element with the class name "vmc-contact"
 
-function employeePosts($val, $val2) {
+function employeePosts($val, $val2, $val3) {
 
     global $employeePosts;
+
+    $imageQuery = new WP_Query( array(
+        'tax_query' => array(
+            array(
+                'taxonomy'  => 'vmc_gotland_cat_employee',
+                'field'     => 'slug',
+                'terms'     =>  $val3,
+            ),
+        ),
+        'post_type' => $employeePosts,
+        'order'     =>'DESC',
+        'posts_per_page' => 1,
+    ));
+
+    if ( $imageQuery->have_posts() ) {
+        while ( $imageQuery->have_posts() ) {
+
+            $imageQuery->the_post();
+
+            $background_url = get_the_post_thumbnail_url(get_the_id(),'full');
+            $backgroundImage = "style=\"background-image: url('$background_url');\"";      
+        }
+    }
 
     // Query to only get employee posts with a specific category
     $query = new WP_Query( array(
@@ -221,37 +245,42 @@ function employeePosts($val, $val2) {
         'posts_per_page' => -1,
     ));
     ?>
-    <div class="vmc-contact__wrapper">
-        <section class="vmc-contact__employee-container">
+    <div class="vmc-contact__wrapper-background" <?php echo $backgroundImage; ?>>
+        <div class="vmc-contact__wrapper swiper-employee-container">
             <h2 class="vmc-contact__employee-headings"> <?php echo($val2); ?> </h2>
-            <?php 
+            <section class="vmc-contact__employee-container swiper-wrapper">
+                <?php 
 
-            // For displaying "Employee" posts
-            if ( $query->have_posts() ) {
+                // For displaying "Employee" posts
+                if ( $query->have_posts() ) {
 
-                while ( $query->have_posts() ) {
+                    while ( $query->have_posts() ) {
 
-                    $query->the_post();
+                        $query->the_post();
 
-                    $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
-                    $background = "style=\"background-image: url('$thumb_url');\"";
+                        $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
+                        $background = "style=\"background-image: url('$thumb_url');\"";
 
-                    ?>
-                    <article class="vmc-contact__employee-content">
-                        <div class="vmc-contact__employee-img" <?php echo $background; ?>></div>
-                        <div class="vmc-contact__employee-txt">
-                            <h3><?php the_title(); ?></h3>
-                            <p> <?php customFields('job_title'); ?> </p>
-                            <p> <?php customFields('phone_number'); ?> </p>
-                            <p> <?php customFields('email'); ?> </p>
-                        </div>
-                    </article><!-- .vmc-slider__content -->
-                    <?php         
+                        ?>
+                        <article class="vmc-contact__employee-content swiper-slide">
+                            <div class="vmc-contact__employee-img" <?php echo $background; ?>></div>
+                            <div class="vmc-contact__employee-txt">
+                                <h3><?php the_title(); ?></h3>
+                                <p> <?php customFields('job_title'); ?> </p>
+                                <p> <?php customFields('phone_number'); ?> </p>
+                                <p> <?php customFields('email'); ?> </p>
+                            </div>
+                        </article><!-- .vmc-slider__content -->
+                        <?php         
+                    }
                 }
-            }
-            ?>
-        </section><!-- .vmc-employee__container -->
-    </div><!-- .vmc-employee__wrapper -->
+                ?>
+            </section><!-- .vmc-employee__container -->
+            <div class="swiper-pagination vmc-slider__pagination"></div>
+            <div class="swiper-button-prev vmc-slider__button swiper-button-white"></div>
+            <div class="swiper-button-next vmc-slider__button swiper-button-white"></div>
+        </div><!-- .vmc-employee__wrapper -->
+    </div>
     <?php 
 }
 
