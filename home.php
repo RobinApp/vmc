@@ -17,8 +17,8 @@ get_header(); ?>
     <?php standardSlider('home-page'); ?>
     </div>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div id="primary" class="content-area content-area-home">
+		<main id="main" class="site-main site-main-home">
 			<div class="vmc-standard-post">
 
 				<?php standardPost('home-page'); ?>
