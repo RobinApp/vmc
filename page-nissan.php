@@ -18,10 +18,9 @@ get_header(); ?>
 
    <div id="primary" class="content-area">
        <main id="main" class="site-main">
-           <div class="vmc-standard-post">
-
-               <?php standardPost('nissan'); ?>
-           </div><!-- .vmc-standard-post -->
+            <div class="vmc-brand-banner">
+                <?php brandPageMenu('nissan', 'sidebar-22', 'sidebar-18'); ?>
+            </div><!-- .vmc-brand-banner -->
        </main><!-- #main -->
    </div><!-- #primary -->
 

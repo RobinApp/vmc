@@ -1,0 +1,122 @@
+//Styling for the brand pages
+
+.vmc-brand-banner {
+    width: 100%;
+    &__container,
+    &__wrapper,
+    &__content {
+        width: 100%;
+        height: 100%;
+    }
+    &__container,
+    &__wrapper,
+    &__content,
+    &__img {
+        box-sizing: border-box;
+    }
+    &__img {
+        @extend .bg-img;
+        width: 100%;
+        min-height: $heightMobile;
+    }
+    &__no-promotions {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        min-height: $heightMobile;
+        h1,
+        p {
+            color: $white;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+        }
+    }
+}
+
+.brand-page-wrapper,
+.brand-text,
+.brand-menu {
+    box-sizing: border-box;
+}
+
+.brand-page-wrapper {
+    background-color: rgba(0, 48, 87, 0.7);
+    min-height: $heightMobile;
+    width: 100%;
+    &--renault {
+        background-color: rgba(255, 204, 51, 0.8);
+    }
+    &--nissan {
+        background-color: rgba(195, 0, 47, 0.8);
+    }
+}
+
+.brand-text,
+.brand-menu {
+    padding: 10px;
+    width: 100%;
+}
+
+.brand-text {
+    margin: 0 auto;
+    padding-top: 20px;
+    h1,
+    p {
+        color: $white;
+        margin: 0;
+        padding: 10px;
+    }
+    h1 {
+        text-align: center;
+    }
+}
+
+.brand-menu {
+    .menu {
+        @include flex-box(column, flex-start, wrap);
+        .menu-item,
+        .menu-item a {
+            text-align: center;
+        }
+        .menu-item {
+            align-self: center;
+            margin: 10px auto;
+            width: 80%;
+        }
+        .menu-item a {
+            @extend .button__standard;
+            @extend .button__standard--white-border-fill-hover;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_3) {
+    .brand-page-wrapper {
+        height: 500px;
+        margin: 0 auto;
+        min-height: 0;
+        position: relative;
+        top: calc(50vh - 25px - 250px);
+        width: 500px;
+    }
+    .vmc-brand-banner {
+        &__no-promotions { //Kan troligen tas bort, kopierat från promotion css
+            height: 100%;
+            min-height: initial;
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_5) {
+    .brand-page-wrapper {
+        width: 640px;
+        top: calc(50vh - 40px - 250px);
+    }
+    .vmc-brand-banner {
+        &__img {
+            min-height: calc(100vh - 80px);
+        }
+    }
+}

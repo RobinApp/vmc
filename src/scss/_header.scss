@@ -180,6 +180,16 @@
                 }
             }
         }
+        .menu-item-38 {
+            &:hover {
+                border-bottom: 5px solid $renaultYellow;
+            }
+        }
+        .menu-item-39 {
+            &:hover {
+                border-bottom: 5px solid $nissanRed;
+            }
+        }
         .current-menu-item {
             border-bottom: 5px solid $color_3;
             a {

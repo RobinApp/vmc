@@ -1,7 +1,7 @@
 {
   "name": "vmc_gotland",
   "version": "1.0.0",
-  "description": "This is my examination project, to build a website for VMC Gotland (AB Visby Motorcentral). I will be using WordPress, \r this repository will only contain the theme.",
+  "description": "WordPress theme for VMC Gotland (AB Visby Motorcentral).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

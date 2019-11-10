@@ -517,3 +517,36 @@ function servicePage() {
     wp_reset_query(); // Resetting the page query
 
 }
+
+// ****************************************************************************************************
+// ************************************* Car Brand Page Sub Menu **************************************
+// ****************************************************************************************************
+
+// The function must be called for within a container element with the class name "vmc-brand-banner"
+
+function brandPageMenu($theBrand, $val, $val1) {
+    if(have_posts()) :
+        while(have_posts()) : the_post();
+
+            $thumb_url = get_the_post_thumbnail_url(get_the_id(),'full');
+            $background = "style=\"background-image: url('$thumb_url');\""; 
+            ?>
+            <div class="vmc-brand-banner__container">
+                <section class="vmc-brand-banner__wrapper">
+                    <article class="vmc-brand-banner__content">
+                        <div class="vmc-brand-banner__img" <?php echo $background; ?> >
+                            <div class="brand-page-wrapper brand-page-wrapper--<?php echo $theBrand; ?>">
+                                <?php  dynamic_sidebar($val); ?> <!-- Brand Text Sidebar --> 
+                                <?php  dynamic_sidebar($val1); ?> <!-- Brand Menu Sidebar --> 
+                            </div><!-- .brand-page-wrapper -->
+                        </div><!-- .vmc-brand-banner__img -->                    
+                    </article><!-- .vmc-brand-banner__content -->
+                </section><!-- .vmc-brand-banner__wrapper -->
+            </div><!-- .vmc-brand-banner__container -->
+            <?php 
+
+        endwhile; // Resetting the page loop
+    endif;
+    wp_reset_query(); // Resetting the page query
+
+}

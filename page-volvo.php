@@ -18,10 +18,9 @@ get_header(); ?>
 
    <div id="primary" class="content-area">
        <main id="main" class="site-main">
-           <div class="vmc-standard-post">
-
-               <?php standardPost('volvo'); ?>
-           </div><!-- .vmc-standard-post -->
+            <div class="vmc-brand-banner">
+                <?php brandPageMenu('volvo', 'sidebar-20', 'sidebar-16'); ?>
+            </div><!-- .vmc-brand-banner -->
        </main><!-- #main -->
    </div><!-- #primary -->
 

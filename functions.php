@@ -232,7 +232,7 @@ function vmc_gotland_widgets_init() {
 		'name'          => esc_html__( 'Volvo Menu Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-16',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
-		'before_widget' => '<div id="%1$s" class="volvo-menu">',
+		'before_widget' => '<div id="%1$s" class="brand-menu">',
 		'after_widget'  => '</div>',
 	) );
 	// Renault Menu Sidebar.
@@ -240,7 +240,7 @@ function vmc_gotland_widgets_init() {
 		'name'          => esc_html__( 'Renault Menu Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-17',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
-		'before_widget' => '<div id="%1$s" class="renault-menu">',
+		'before_widget' => '<div id="%1$s" class="brand-menu">',
 		'after_widget'  => '</div>',
 	) );
 	// Nissan Menu Sidebar.
@@ -248,7 +248,7 @@ function vmc_gotland_widgets_init() {
 		'name'          => esc_html__( 'Nissan Menu Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-18',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
-		'before_widget' => '<div id="%1$s" class="nissan-menu">',
+		'before_widget' => '<div id="%1$s" class="brand-menu">',
 		'after_widget'  => '</div>',
 	) );
 	// Dacia Menu Sidebar.
@@ -256,8 +256,48 @@ function vmc_gotland_widgets_init() {
 		'name'          => esc_html__( 'Dacia Menu Sidebar', 'vmc_gotland' ),
 		'id'            => 'sidebar-19',
 		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
-		'before_widget' => '<div id="%1$s" class="dacia-menu">',
+		'before_widget' => '<div id="%1$s" class="brand-menu">',
 		'after_widget'  => '</div>',
+	) );
+	// Volvo Text Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Volvo Text Sidebar', 'vmc_gotland' ),
+		'id'            => 'sidebar-20',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="brand-text">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h1 class="brand-text__heading">',
+		'after_title'   => '</h1>',
+	) );
+	// Renault Text Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Renault Text Sidebar', 'vmc_gotland' ),
+		'id'            => 'sidebar-21',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="brand-text">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h1 class="brand-text__heading">',
+		'after_title'   => '</h1>',
+	) );
+	// Nissan Text Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Nissan Text Sidebar', 'vmc_gotland' ),
+		'id'            => 'sidebar-22',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="brand-text">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h1 class="brand-text__heading">',
+		'after_title'   => '</h1>',
+	) );
+	// Dacia Text Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Dacia Text Sidebar', 'vmc_gotland' ),
+		'id'            => 'sidebar-23',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="brand-text">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h1 class="brand-text__heading">',
+		'after_title'   => '</h1>',
 	) );
 }
 add_action( 'widgets_init', 'vmc_gotland_widgets_init' );
