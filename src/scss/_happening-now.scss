@@ -1,0 +1,149 @@
+//Styling for the Happening Now page
+
+.happening-now-content-container {
+    background-color: #003057;
+    // background-color: rgba(0,48,87,.7);
+    // position: absolute;
+    &__text {
+        color: #fff;
+        margin: 0px;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+.vmc-happening-now-banner {
+    width: 100%;
+    &__container,
+    &__wrapper,
+    &__content {
+        width: 100%;
+        height: 100%;
+    }
+    &__container,
+    &__wrapper,
+    &__content,
+    &__img {
+        box-sizing: border-box;
+    }
+    &__img {
+        @extend .bg-img;
+        width: 100%;
+        min-height: $heightMobile;
+    }
+    &__widget {
+        @include flex-box(column, space-between, wrap);
+        background-color: rgba(0, 48, 87, 0.7);
+        min-height: 300px;
+        margin: 10px;
+        // width: 100%;
+        max-width: 100%;
+        min-width: 30%;
+    }
+}
+
+.happening-now-page-wrapper {
+    @include flex-box(column, flex-start, wrap);
+}
+
+.happening-now-page-wrapper,
+.happening-now-text-widget,
+.happening-now-menu-widget {
+    box-sizing: border-box;
+}
+
+.happening-now-text-widget,
+.happening-now-menu-widget {
+    padding: 10px;
+    width: 100%;
+}
+
+.happening-now-text-widget {
+    margin: 0 auto;
+    padding-top: 20px;
+    h1,
+    p {
+        color: $white;
+        margin: 0;
+        padding: 10px;
+    }
+    h1 {
+        text-align: center;
+    }
+}
+
+.happening-now-menu-widget {
+    .menu {
+        @include flex-box(column, flex-start, wrap);
+        .menu-item,
+        .menu-item a {
+            text-align: center;
+        }
+        .menu-item {
+            align-self: center;
+            margin: 10px auto;
+            width: 80%;
+        }
+        .menu-item a {
+            @extend .button__standard;
+            @extend .button__standard--white-border-fill-hover;
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_3) {
+    .happening-now-page-wrapper {
+        @include flex-box(row, center, nowrap);
+        min-height: calc(100vh - 120px);
+    }
+    .vmc-happening-now-banner {
+        &__widget {
+            align-items: center;
+            align-self: center;
+            margin: 10px;
+            min-height: 350px;
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_5) {
+    .happening-now-content-container {
+        &__text {
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 15px 25px;
+        }
+    }
+    .happening-now-page-wrapper {
+        margin: 0 auto;
+        max-width: 1200px;
+    }
+    .vmc-happening-now-banner {
+        &__widget {
+            margin: 10px 20px;
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_7) {
+    .happening-now-page-wrapper {
+        max-width: 1300px;
+    }
+    .happening-now-content-container {
+        &__text {
+            max-width: 1300px;
+        }
+    }
+}
+
+@media screen and (min-width: $breakPoint_8) {
+    .happening-now-page-wrapper {
+        max-width: 1500px;
+    }
+    .happening-now-content-container {
+        &__text {
+            max-width: 1500px;
+        }
+    }
+}

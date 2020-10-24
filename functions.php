@@ -299,6 +299,66 @@ function vmc_gotland_widgets_init() {
 		'before_title'  => '<h1 class="brand-text__heading">',
 		'after_title'   => '</h1>',
 	) );
+	// Happening Now Text 1 Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Happening Now Text Sidebar 1', 'vmc_gotland' ),
+		'id'            => 'sidebar-24',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s happening-now-text-widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h1 class="happening-now-text__heading">',
+		'after_title'   => '</h1>',
+	) );
+	// Happening Now Text 2 Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Happening Now Text Sidebar 2', 'vmc_gotland' ),
+		'id'            => 'sidebar-25',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s happening-now-text-widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h1 class="happening-now-text__heading">',
+		'after_title'   => '</h1>',
+	) );
+	// Happening Now Text 3 Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Happening Now Text Sidebar 3', 'vmc_gotland' ),
+		'id'            => 'sidebar-26',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s happening-now-text-widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h1 class="happening-now-text__heading">',
+		'after_title'   => '</h1>',
+	) );
+	// Happening Now Menu 1 Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Happening Now Menu Sidebar 1', 'vmc_gotland' ),
+		'id'            => 'sidebar-27',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s happening-now-menu-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="happening-now-menu__heading">',
+		'after_title'   => '</h3>',
+	) );
+	// Happening Now Menu 2 Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Happening Now Menu Sidebar 2', 'vmc_gotland' ),
+		'id'            => 'sidebar-28',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s happening-now-menu-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="happening-now-menu__heading">',
+		'after_title'   => '</h3>',
+	) );
+	// Happening Now Menu 3 Sidebar.
+	register_sidebar( array(
+		'name'          => esc_html__( 'Happening Now Menu Sidebar 3', 'vmc_gotland' ),
+		'id'            => 'sidebar-29',
+		'description'   => esc_html__( 'Add widgets here.', 'vmc_gotland' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s happening-now-menu-widget">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="happening-now-menu__heading">',
+		'after_title'   => '</h3>',
+	) );
 }
 add_action( 'widgets_init', 'vmc_gotland_widgets_init' );
 
